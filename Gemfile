@@ -6,6 +6,7 @@ group :development do
   gem "annotate"
 end
 
+gem "newrelic_rpm"
 gem "bootstrap-sass", "~> 3.2.0"
 gem "therubyracer"
 gem "bcrypt"
