@@ -6,6 +6,7 @@ group :development do
   gem "annotate"
 end
 
+gem "kaminari"
 gem "figaro"
 gem "paperclip"
 gem "aws-sdk"

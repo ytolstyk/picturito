@@ -1,10 +1,11 @@
 class PicturesController < ApplicationController
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.page(params[:page]).per(2)
   end
 
   def show
     @picture = Picture.find(params[:id])
+    @picture.update(views: @picture.views += 1)
   end
 
   def new
@@ -24,6 +25,9 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to user_url(current_user)
   end
 
   private

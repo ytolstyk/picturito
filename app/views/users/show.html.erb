@@ -1,0 +1,14 @@
+<h1><%= current_user.username %></h1>
+
+<h3>Your pictures</h3>
+
+<ul class="user-pictures">
+  <% current_user.pictures.each do |picture| %>
+    <li>
+      <%= image_tag picture.img_url.url(:small) %>
+      <div>
+        <%= button_to "x", picture_url(picture), method: :delete %>
+      </div>
+    </li>
+  <% end %>
+</ul>

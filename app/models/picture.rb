@@ -20,9 +20,11 @@ class Picture < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :img_url, styles: {
-    big: "650x650>",
+    big: "1000>",
     small: "250x250#"
   }
 
   validates_attachment_content_type :img_url, content_type: /\Aimage\/.*\Z/
+
+  max_paginates_per 20
 end
