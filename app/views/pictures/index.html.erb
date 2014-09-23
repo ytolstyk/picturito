@@ -1,1 +1,7 @@
 PRETTY PIcTURES HERE!
+
+<ul>
+  <% @pictures.each do |picture| %>
+    <li><%= image_tag picture.img_url.url(:small) %></li>
+  <% end %>
+</ul>

@@ -6,6 +6,9 @@ group :development do
   gem "annotate"
 end
 
+gem "figaro"
+gem "paperclip"
+gem "aws-sdk"
 gem "newrelic_rpm"
 gem "bootstrap-sass", "~> 3.2.0"
 gem "therubyracer"
