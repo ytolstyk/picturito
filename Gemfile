@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
-group: :development do
-  gem "better_errors",
-  gem "binding_of_caller",
-  gem "annotate",
-  gem "bcrypt"
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "annotate"
 end
 
+gem "bootstrap-sass", "~> 3.2.0"
+gem "therubyracer"
+gem "bcrypt"
 gem 'rails', '4.1.4'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
