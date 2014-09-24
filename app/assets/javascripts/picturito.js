@@ -31,6 +31,14 @@ $(function () {
     $form.find(".picture-file").prop("disabled", disable);
   };
 
+  function clearForm($form) {
+    $form.find(":input").val("");
+  };
+
+  function displayError($form) {
+    // make an error div in footer
+  };
+
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
     var $form = $(".picture-upload-form");
@@ -50,10 +58,13 @@ $(function () {
       var fileContent = this.result;
       picture.set("img_url", fileContent);
       picture.save([], {
-        error: uploadCallback,
+        error: function() {
+          uploadCallback();
+          displayError($form);
+        },
         success: function() {
           uploadCallback();
-          alert("we're here!");
+          clearForm($form);
         },
         wait: true
       });
