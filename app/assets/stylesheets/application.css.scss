@@ -50,17 +50,27 @@
   min-width: 1200px;
 }
 
-.splash-center {margin: 10px solid blue;
+.splash-center {
   position: absolute;
   margin: 0 auto;
   width: 1000px;
+  height: 80%;
   z-index: 20;
 }
 
-picture-splash-show {margin: 10px solid blue;
+.picture-splash-header {
+  color: grey;
+}
+
+
+
+.picture-splash-show {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  left: 0;
+  right: 0;
+  position: absolute;
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
