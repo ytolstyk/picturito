@@ -21,12 +21,14 @@ class Picture < ActiveRecord::Base
   belongs_to :user
 
   has_many :users
+
   has_many(:picture_likes,
     class_name: "PictureLike",
     primary_key: :id,
-    foreign_key: :picture_id)
-  
+    foreign_key: :picture_id)  
   has_many(:liked_users, through: :picture_likes, source: :user)
+
+  has_many :comments
 
   has_attached_file :img_url, styles: {
     big: "1000>",

@@ -19,12 +19,16 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
 
   has_many :pictures
+
   has_many(:picture_likes,
     class_name: "PictureLike",
     primary_key: :id,
     foreign_key: :user_id)
+  has_many(:liked_pictures,
+    through: :picture_likes,
+    source: :picture)
 
-  has_many(:liked_pictures, through: :picture_likes, source: :picture)
+  has_many :comments
 
   belongs_to :picture
 
