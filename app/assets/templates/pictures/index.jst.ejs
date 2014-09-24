@@ -1,0 +1,16 @@
+<div class="clearfix">
+  <ul class="ul-pictures">
+    <% pictures.each(function(picture) { %>
+      <li class="li-picture">
+        <a href="#/picture/<%= picture.id %>">
+          <img src="<%= picture.escape('image_url') %>">
+        </a>
+        <div class="picture-title">
+          <%= picture.escape("title") %>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+</div>
+
+<button class="refresh">Refresh</button>

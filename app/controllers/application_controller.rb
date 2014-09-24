@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
   def login_user!(user)
     user.reset_session_token!
     session[:session_token] = user.session_token
-
-    redirect_to pictures_url #IMAGES URL
   end
 
   def current_user
@@ -24,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_logged_in
-    redirect_to pictures_url unless current_user
+    redirect_to new_session_url unless current_user
   end
 
 

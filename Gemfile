@@ -6,6 +6,7 @@ group :development do
   gem "annotate"
 end
 
+gem "backbone-on-rails"
 gem "kaminari"
 gem "figaro"
 gem "paperclip"

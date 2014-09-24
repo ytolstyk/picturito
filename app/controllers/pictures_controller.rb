@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
+
   def index
-    @pictures = Picture.all.page(params[:page]).per(2)
+    @pictures = Picture.all.page(params[:page]).per(20)
+    render template: "index"
   end
 
   def show
@@ -17,17 +19,16 @@ class PicturesController < ApplicationController
     @picture.user_id = current_user.id
 
     if @picture.save
-      redirect_to pictures_url
+      render json: @picture
     else
-      flash.now[:errors] = @picture.errors.full_messages
-      render :new
+      render json: @picture.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   def destroy
     @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to user_url(current_user)
+    render json: {}
   end
 
   private

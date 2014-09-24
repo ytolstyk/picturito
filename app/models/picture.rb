@@ -25,6 +25,4 @@ class Picture < ActiveRecord::Base
   }
 
   validates_attachment_content_type :img_url, content_type: /\Aimage\/.*\Z/
-
-  max_paginates_per 20
 end

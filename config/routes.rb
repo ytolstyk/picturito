@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root to: "users#new"
+  root to: "static_pages#root"
 
   resources :users
   resource :session, only: [:new, :create, :destroy]
 
-  resources :pictures
+  resources :pictures, defaults: { format: :json }
 end

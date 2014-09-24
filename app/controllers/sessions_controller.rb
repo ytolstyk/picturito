@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 
     if user
       login_user!(user)
+      redirect_to root_url
     else
       flash.now[:errors] = ["Username/password doesn't exist"]
       render :new
