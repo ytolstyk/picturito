@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Picturito</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application'%>
-  <%= csrf_meta_tags %>
+  <head>
+    <title>Picturito</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application'%>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <%= stylesheet_link_tag 'application' %>
-</head>
-<body>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <% if current_user %>
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Activity</a></li>
+        <li><a href="#/profile">Profile</a></li>
+        <li><a href="#"
+          data-toggle="modal"
+          data-target="#pictureUpload">Upload</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Sign out", session_url, method: :delete %>
+        </li>
+      </ul>
+    <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign in", new_session_url %></li>
+        <li><%= link_to "Sign up", new_user_url %></li>
+      </ul>
+    <% end %>
+  </div>
+  </nav>
 
-<nav>
-  <% if current_user %>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li>Activity</li>
-      <li><a href="#/profile">Profile</a></li>
-      <li><a href="#">Upload</a></li>
-    </ul>
-    <ul>
-      <li><%= button_to "Sign out", session_url, method: :delete %></li>
-    </ul>
-  <% else %>
-    <ul>
-      <li><%= link_to "Sign in", new_session_url %></li>
-      <li><%= link_to "Sign up", new_user_url %></li>
+  <% if flash[:errors] %>
+    <ul class="flash-errors">
+      <% flash[:errors].try(:each) do |error| %>
+        <li><%= error %></li>
+      <% end %>
     </ul>
   <% end %>
-</nav>
 
-<% if flash[:errors] %>
-  <ul class="flash-errors">
-    <% flash[:errors].try(:each) do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <%= yield %>
 
-<%= yield %>
+  <!-- upload modal -->
+  <div class="modal fade" id="pictureUpload" tabindex="-1" role="dialog" aria-labelledly="Upload" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="Upload">Upload</h4>
+        </div>
 
-</body>
+        <div class="modal-body">
+          <form class="picture-upload-form" enctype="multipart/form-data">
+            <label>Title
+              <input type="text" class="picture-title"></label>
+            <label>Description
+              <textarea class="picture-description"></textarea>
+            <label>File
+              <input type="file" class="picture-file">
+            </label>
+        </div>
+
+        <div class="modal-footer">
+            <button class="picture-upload">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
 </html>

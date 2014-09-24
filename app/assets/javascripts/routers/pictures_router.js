@@ -1,7 +1,10 @@
 Picturito.Routers.Pictures = Backbone.Router.extend({
   initialize: function(options) {
     this.$main = options.$main;
-    this.collection = Picturito.pictures;
+    this.picturesCollection = Picturito.pictures;
+
+
+    // set up modal(options.$navBarBtn)
   },
 
   routes: {
@@ -12,9 +15,9 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   index: function() {
-    this.collection.fetch();
+    this.picturesCollection.fetch();
     var pictureIndex = new Picturito.Views.PicturesIndex({
-      collection: this.collection
+      collection: this.picturesCollection
     });
 
     this._swapView(pictureIndex);
@@ -25,9 +28,9 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   show: function(id) {
-    var picture = this.collection.getOrFetch(id);
+    var picture = this.picturesCollection.getOrFetch(id);
     var pictureShow = new Picturito.Views.PictureShow({
-      collection: this.collection,
+      collection: this.picturesCollection,
       model: picture
     });
 

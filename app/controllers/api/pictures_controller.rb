@@ -1,5 +1,6 @@
 module Api
   class PicturesController < ApiController
+    wrap_parameters :picture, include: [:title, :description, :img_url]
 
     def index
       @pictures = Picture.all.page(params[:page]).per(20)
