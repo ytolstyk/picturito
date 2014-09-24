@@ -33,6 +33,8 @@ $(function () {
 
   function clearForm($form) {
     $form.find(":input").val("");
+    $(".close").trigger("click");
+    $(".refresh").trigger("click");
   };
 
   function displayError($form) {

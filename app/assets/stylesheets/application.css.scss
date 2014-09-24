@@ -16,3 +16,20 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+* {
+  list-style: none;
+}
+
+#main {
+  margin: 0 auto;
+  width: 1000px;
+  height: 100%;
+}
+
+.li-picture {
+  float: left;
+  display: inline;
+  margin: 20px;
+  overflow: hidden;
+}
