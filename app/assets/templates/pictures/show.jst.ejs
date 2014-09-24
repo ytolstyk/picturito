@@ -1,7 +1,8 @@
-<div class="clearfix">
-  <div class="div-picture">
-    <img href="">
-  </div>
+<h1><%= picture.escape("title") %></h1>
+<h3>Views: <%= picture.escape("views") %></h3>
+<div class="div-picture">
+  <img src="<%= picture.escape('image_url_big') %>">
 </div>
 
-<button class="refresh">Refresh</button>
+<h3>Description</h3>
+<p><%= picture.escape("description") %></p>

@@ -3,19 +3,27 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
 
   url: "api/pictures",
 
-  getOrFetch: function(id) {
-    var board = this.get(id);
+  comparator: function(picture) {
+    return picture.get("id");
+    // use -picture.get("views"); to sort by popularity
+  },
 
-    if (!board) {
-      board = new TrelloClone.Models.Board({ id: id });
-      board.fetch({
+  getOrFetch: function(id) {
+    var picture = this.get(id);
+
+    if (!picture) {
+      picture = new Picturito.Models.Picture({ id: id });
+
+      picture.fetch({
         success: function() {
-          this.add(board)
+          this.add(picture)
         }.bind(this)
       });
+    } else {
+      picture.fetch();
     }
 
-    return board;
+    return picture;
   }
 
 });

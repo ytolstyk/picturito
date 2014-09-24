@@ -3,7 +3,7 @@ Picturito.Views.PictureShow = Backbone.View.extend({
   template: JST['pictures/show'],
 
   initialize: function() {
-    this.listenTo(this.model, "sync add remove", this.render);
+    this.listenTo(this.model, "sync add remove reset", this.render);
   },
 
   events: {
