@@ -17,6 +17,6 @@ Picturito.Views.PictureShow = Backbone.View.extend({
 
     this.$el.html(renderContent);
     return this;
-  },
+  }
 
 });

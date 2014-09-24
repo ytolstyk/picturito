@@ -1,8 +1,13 @@
-Picturito.Views.PictureIndexShow = Backbone.CompositeView.extend({
-  template: JST["pictures/indexShow"],
+Picturito.Views.PictureIndexShow = Backbone.View.extend({
+
+  template: JST["pictures/index_show"],
 
   initialize: function() {
-    this.listenTo()
+    this.listenTo(this.model, "sync add remove", this.render);
+  },
+
+  events: {
+
   },
 
   render: function() {
@@ -11,7 +16,7 @@ Picturito.Views.PictureIndexShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderContent);
-    this.attachSubviews();
     return this;
   }
+
 });

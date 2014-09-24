@@ -1,0 +1,11 @@
+<li class="li-picture">
+  <a href="#/picture/<%= picture.id %>">
+    <img src="<%= picture.escape('image_url_small') %>">
+  </a>
+  <div class="picture-views">
+    Views: <%= picture.escape("views") %>
+  </div>
+  <div class="picture-title">
+    <%= picture.escape("title") %>
+  </div>
+</li>
