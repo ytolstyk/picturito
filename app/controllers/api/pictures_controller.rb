@@ -3,7 +3,7 @@ module Api
     wrap_parameters :picture, include: [:title, :description, :img_url]
 
     def index
-      @pictures = Picture.all.page(params[:page]).per(20)
+      @pictures = Picture.all.order(:id)
     end
 
     def show

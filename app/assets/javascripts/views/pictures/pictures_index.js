@@ -5,6 +5,7 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, "sync remove", this.render);
     this.listenTo(this.collection, "add", this.addPicture)
+    
     var view = this;
     this.collection.each(function(picture) {
       view.addPicture(picture);

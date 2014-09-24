@@ -33,3 +33,36 @@
   margin: 20px;
   overflow: hidden;
 }
+
+.div-splash-container {
+  position: fixed;
+  margin: 0;
+  border: none;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  min-width: 1200px;
+}
+
+.splash-center {margin: 10px solid blue;
+  position: absolute;
+  margin: 0 auto;
+  width: 1000px;
+  z-index: 20;
+}
+
+picture-splash-show {margin: 10px solid blue;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

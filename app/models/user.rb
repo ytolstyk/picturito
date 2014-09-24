@@ -8,6 +8,7 @@
 #  session_token   :string(255)      not null
 #  created_at      :datetime
 #  updated_at      :datetime
+#  picture_id      :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -18,6 +19,14 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
 
   has_many :pictures
+  has_many(:picture_likes,
+    class_name: "PictureLike",
+    primary_key: :id,
+    foreign_key: :user_id)
+
+  has_many(:liked_pictures, through: :picture_likes, source: :picture)
+
+  belongs_to :picture
 
   after_initialize :ensure_session_token
 
