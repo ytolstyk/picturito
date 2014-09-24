@@ -60,9 +60,11 @@
 
 .picture-splash-header {
   color: grey;
+  padding: 5px;
+  height: 90px;
+  min-width: 1000px;
+  top: 0px;
 }
-
-
 
 .picture-splash-show {
   width: 100%;
@@ -75,4 +77,21 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.picture-splash-footer {
+  color: grey;
+  padding: 5px;
+  heigth: 90px;
+  min-width: 1000px;
+  bottom: 0px; 
+}
+
+.h2-title {
+  margin: 0;
+}
+
+.title {
+  margin-left: 20px;
+  display: inline-block;
 }

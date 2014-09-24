@@ -1,7 +1,11 @@
 <div class="div-splash-container">
   <div class="splash-center">
     <div class="picture-splash-header">
-      <h1><%= picture.escape("title") %></h1>
+      <div class="title">
+        <div class="avatar"></div>
+        <h2 class="h2-title"><%= picture.escape("title") %></h2>
+        <span><%= picture.escape("username") %></span>
+      </div>
     </div>
 
     <div class="picture-splash-show" 
