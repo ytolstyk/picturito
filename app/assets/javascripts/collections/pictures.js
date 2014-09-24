@@ -1,7 +1,7 @@
 Picturito.Collections.Pictures = Backbone.Collection.extend({
   model: Picturito.Models.Picture,
 
-  url: "pictures",
+  url: "api/pictures",
 
   getOrFetch: function(id) {
     var board = this.get(id);

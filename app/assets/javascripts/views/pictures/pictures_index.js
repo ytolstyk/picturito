@@ -11,7 +11,7 @@ Picturito.Views.PicturesIndex = Backbone.View.extend({
   },
 
   refresh: function() {
-    this.colleciton.fetch();
+    this.collection.fetch();
   },
 
   render: function() {

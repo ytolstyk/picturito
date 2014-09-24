@@ -6,9 +6,9 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "picture/new": "newPicture",
-    "picture/:id": "show",
-    "picture/:id/edit": "edit"
+    "api/picture/new": "newPicture",
+    "api/picture/:id": "show",
+    "api/picture/:id/edit": "edit"
   },
 
   index: function() {
@@ -21,7 +21,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   newPicture: function() {
-    
+
   },
 
   show: function(id) {
