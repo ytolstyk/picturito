@@ -17,6 +17,7 @@ module Api
       @comment.user_id = current_user.id
 
       if @comment.save
+        # make an activity record
         render json: @comment
       else
         render json: @comment.errors.full_messages

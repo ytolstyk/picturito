@@ -11,6 +11,7 @@
 
 class PictureLike < ActiveRecord::Base
   validates :user_id, :picture_id, presence: true
+  validates_uniqueness_of :user_id, scope: :picture_id
 
   belongs_to :user
   belongs_to :picture

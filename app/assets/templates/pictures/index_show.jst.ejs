@@ -9,7 +9,7 @@
   <div class="picture-title">
     <%= picture.escape("title") %>
   </div>
-  <div>
+  <div class="picture-like">
     <% var color = picture.escape("user_liked") === "true" ? "red" : "" %>
     <span class="glyphicon glyphicon-heart" style="color: <%= color %>;"></span>
     <div><%= picture.escape("likes") %></div>
