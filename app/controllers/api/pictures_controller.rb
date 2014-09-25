@@ -26,6 +26,9 @@ module Api
       end
     end
 
+    def update
+    end
+
     def destroy
       @picture = Picture.find(params[:id])
       @picture.destroy

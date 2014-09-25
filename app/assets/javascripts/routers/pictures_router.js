@@ -3,8 +3,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this.$main = options.$main;
     this.picturesCollection = Picturito.pictures;
 
-
-    // set up modal(options.$navBarBtn)
+    // set up modal(options.$navBarBtn) view
   },
 
   routes: {
@@ -24,6 +23,10 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   newPicture: function() {
+
+  },
+
+  edit: function() {
 
   },
 

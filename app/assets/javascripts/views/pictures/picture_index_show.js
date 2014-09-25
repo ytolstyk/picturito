@@ -7,8 +7,6 @@ Picturito.Views.PictureIndexShow = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync add remove reset", this.render);
-    this.listenTo(this.model.collection, 'sync', function() {
-    });
   },
 
   events: {

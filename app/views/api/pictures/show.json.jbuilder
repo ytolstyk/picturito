@@ -7,3 +7,12 @@ json.views @picture.views
 json.username @picture.user.username
 json.likes @picture.like_count
 json.user_liked @picture.user_liked?(current_user)
+json.comments @picture.comments do |comment|
+  json.id comment.id
+  json.body comment.body
+  json.picture_id comment.picture_id
+  json.username comment.user.username
+  json.user_id comment.user.id
+  json.current_user current_user.id
+end
+json.current_user current_user.id

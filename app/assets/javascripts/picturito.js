@@ -18,31 +18,37 @@ window.Picturito = {
 $(function () {
   Picturito.initialize();
 
-  // function handleFile(file) {
-  //   var reader = new FileReader();
-  //   reader.onload = function(e) {
-  //     // send e.target.result in $.ajax request
-  //     console.log(this.result);
-  //   }
-  //   reader.readAsDataURL(file);
-  // };
-
   function _toggleFormEnabled($form, disable) {
     $form.find(".picture-file").prop("disabled", disable);
+    $form.find(":input").prop("disabled", disable);
+    $form.find("button").prop("disabled", disable);
   };
 
   function clearForm($form) {
     $form.find(":input").val("");
+    removeAlert();
     $(".close").trigger("click");
     $(".refresh").trigger("click");
   };
 
   function displayError($form) {
-    // make an error div in footer
+    var $alert = $("<div class='alert alert-danger inline-block'>");
+    $alert.html("Something went wrong with your upload");
+    $(".modal-content").find(".modal-footer").prepend($alert);
+    _toggleFormEnabled($form, false);
   };
+
+  function removeAlert() {
+    $(".modal-footer").find(".alert").remove();
+  };
+
+  $("button.close").on("click", function(event) {
+    removeAlert();
+  });
 
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
+    removeAlert();
     var $form = $(".picture-upload-form");
     var title = $($form.find(".picture-title")).val();
     var description = $($form.find(".picture-description")).val();
@@ -72,7 +78,11 @@ $(function () {
       });
     });
 
-    reader.readAsDataURL(file);
+    if (file === undefined) {
+      displayError($form);
+    } else {
+      reader.readAsDataURL(file);
+    }
   });
 
 });

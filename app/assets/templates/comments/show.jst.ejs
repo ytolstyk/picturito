@@ -1,0 +1,11 @@
+<div class="comment-body">
+  <%= comment.escape("body") %>
+</div>
+
+<% if (comment.escape("user_id") === comment.escape("current_user")) { %>
+  <button class="close delete-comment">x</button>
+<% }; %>
+
+<div class="comment-author">
+  <%= comment.escape("username") %>
+</div>
