@@ -46,6 +46,10 @@ $(function () {
     removeAlert();
   });
 
+  $("#pictureUpload").bind("dialogclose", function(event) {
+    removeAlert();
+  });
+
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
     removeAlert();

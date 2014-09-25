@@ -9,6 +9,8 @@ module Api
     def show
       @picture = Picture.find(params[:id])
       @picture.update(views: @picture.views += 1)
+
+      render :show
     end
 
     def new

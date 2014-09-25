@@ -5,6 +5,8 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync add remove reset", this.render);
+
+    // listening for 'add' will call callback in order received from the server
     this.listenTo(this.model.comments(), "add", this.addComment);
     this.listenTo(this.model.comments(), "remove", this.removeComment);
 
@@ -26,7 +28,8 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     });
     comment.fetch();
 
-    this.addSubview(".ul-comments", commentShow);
+    this.addCommentSubview(".ul-comments", commentShow);
+    // this.addSubview(".ul-comments", commentShow);
   },
 
   createComment: function(event) {
