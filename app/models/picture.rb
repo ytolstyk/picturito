@@ -36,4 +36,13 @@ class Picture < ActiveRecord::Base
   }
 
   validates_attachment_content_type :img_url, content_type: /\Aimage\/.*\Z/
+
+  def like_count
+    return 0 if self.liked_users.empty?
+    self.liked_users.count
+  end
+
+  def user_liked?(user)
+    self.liked_users.include?(user)
+  end
 end

@@ -5,3 +5,5 @@ json.image_url_big @picture.img_url.url(:big)
 json.image_url_small @picture.img_url.url(:small)
 json.views @picture.views
 json.username @picture.user.username
+json.likes @picture.like_count
+json.user_liked @picture.user_liked?(current_user)

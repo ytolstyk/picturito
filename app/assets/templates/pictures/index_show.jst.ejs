@@ -1,17 +1,17 @@
-<li class="li-picture">
-  <div class="index-picture-container">
-    <a href="#/picture/<%= picture.id %>">
-      <img src="<%= picture.escape('image_url_small') %>">
-    </a>
+<div class="index-picture-container">
+  <a href="#/picture/<%= picture.id %>">
+    <img src="<%= picture.escape('image_url_small') %>">
+  </a>
 
-    <div class="picture-views">
-      Views: <%= picture.escape("views") %>
-    </div>
-    <div class="picture-title">
-      <%= picture.escape("title") %>
-    </div>
-    <div>
-      <span class="glyphicon glyphicon-heart"></span>
-    </div>
+  <div class="picture-views">
+    Views: <%= picture.escape("views") %>
   </div>
-</li>
+  <div class="picture-title">
+    <%= picture.escape("title") %>
+  </div>
+  <div>
+    <% var color = picture.escape("user_liked") === "true" ? "red" : "" %>
+    <span class="glyphicon glyphicon-heart" style="color: <%= color %>;"></span>
+    <div><%= picture.escape("likes") %></div>
+  </div>
+</div>
