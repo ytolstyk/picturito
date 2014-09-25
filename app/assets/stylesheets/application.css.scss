@@ -34,58 +34,51 @@
   overflow: hidden;
 }
 
-.div-splash-container {
+.splash-container {
   position: fixed;
-  margin: 0;
-  border: none;
   z-index: 10;
-  height: 100%;
-  width: 100%;
   background-color: black;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
-  min-width: 1200px;
+  color:grey;
 }
 
-.splash-center {
-  position: absolute;
-  margin: 0 auto;
-  width: 1000px;
-  height: 80%;
-  z-index: 20;
+.picture-splash-header, .picture-splash-footer, .picture-splash-body {
+  position:absolute;
+  left:0;
+  right:0;
 }
-
 .picture-splash-header {
-  color: grey;
   padding: 5px;
-  height: 90px;
-  min-width: 1000px;
-  top: 0px;
+  height: 70px;
+  top: 0;
 }
+.picture-splash-footer {
+  padding: 5px;
+  bottom:0;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+.picture-splash-body {
+  top:70px;
+  bottom:50px;
+}
+
+/*.picture-splash-wrap {
+
+}*/
 
 .picture-splash-show {
-  width: 100%;
   height: 100%;
-  overflow: hidden;
-  left: 0;
-  right: 0;
-  position: absolute;
-  text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.picture-splash-footer {
-  color: grey;
-  padding: 5px;
-  heigth: 90px;
-  min-width: 1000px;
-  bottom: 0px; 
-}
+
 
 .h2-title {
   margin: 0;

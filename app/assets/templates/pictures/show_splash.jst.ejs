@@ -1,5 +1,4 @@
-<div class="div-splash-container">
-  <div class="splash-center">
+<div class='splash-container'>
     <div class="picture-splash-header">
       <div class="title">
         <div class="avatar"></div>
@@ -8,14 +7,14 @@
       </div>
     </div>
 
-    <div class="picture-splash-show" 
-      style="background-image: url(<%= picture.escape('image_url_big') %>)">
+    <div class="picture-splash-body">
+      <div class="picture-splash-show" 
+        style="background-image: url(<%= picture.escape('image_url_big') %>)">
+      </div>
     </div>
-
+    
     <div class="picture-splash-footer">
-
+        views: <%= picture.escape("views") %>
     </div>
 
-  </div>
 </div>
-

@@ -18,7 +18,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
   events: {
     "click .div-picture": "renderSplash",
-    "click .div-splash-container": "render",
+    "click div.splash-container": "render",
     "submit form.new-comment": "createComment"
   },
 

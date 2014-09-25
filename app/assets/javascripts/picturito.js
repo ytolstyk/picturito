@@ -42,17 +42,13 @@ $(function () {
     $(".modal-footer").find(".alert").remove();
   };
 
-  $("button.close").on("click", function(event) {
-    removeAlert();
-  });
-
-  $("#pictureUpload").bind("dialogclose", function(event) {
+  $("#pictureUpload").on("hidden.bs.modal", function(event) {
     removeAlert();
   });
 
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
-    removeAlert();
+    // removeAlert();
     var $form = $(".picture-upload-form");
     var title = $($form.find(".picture-title")).val();
     var description = $($form.find(".picture-description")).val();
