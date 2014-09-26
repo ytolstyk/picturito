@@ -105,3 +105,46 @@ div.inline-block {
   max-height: 300px;
   overflow-x: hidden;
 }
+
+div.picture-like {
+  text-shadow: 1px 1px 3px;
+  background-color: grey;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 45px;
+  height: 37px;
+  font-size: 30px;
+  opacity: 0.3;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+div.picture-like:hover {
+  font-size: 0;
+  opacity: 1;
+}
+
+div.picture-like:hover .likes-count {
+  font-size: 20px;
+  opacity: 1;
+}
+
+.span-likes-count {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.likes-count {
+  color: white;
+  font-size: 0;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.index-picture-container {
+  position: relative;
+  margin: 0 auto;
+}

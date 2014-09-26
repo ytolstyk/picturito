@@ -15,8 +15,7 @@ Picturito.Views.PictureIndexShow = Backbone.View.extend({
 
   handleLike: function(event) {
     event.preventDefault();
-    var $heart = $(event.currentTarget).find(".glyphicon");
-    if ($heart.attr("style") === "color: red;") {
+    if (this.model.escape("user_liked") === "true") {
       this.dislike();
     } else {
       this.like();

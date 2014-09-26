@@ -13,7 +13,7 @@
 class Comment < ActiveRecord::Base
   validates :user_id, :picture_id, :body, presence: true
 
-  default_scope -> { order(:id => :desc) }
+  default_scope -> { order(:id => :asc) }
 
   belongs_to :user
   belongs_to :picture

@@ -3,13 +3,8 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
   template: JST['pictures/index'],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync remove like", this.render);
-    this.listenTo(this.collection, "add", this.addPicture)
-
-    var view = this;
-    this.collection.each(function(picture) {
-      view.addPicture(picture);
-    });
+    this.listenTo(this.collection, "sync add remove like", this.render);
+    // this.listenTo(this.collection, "add", this.addPicture);
   },
 
   events: {
@@ -29,6 +24,13 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
   },
 
   render: function() {
+    this._subviews = {};
+
+    var view = this;
+    this.collection.each(function(picture) {
+      view.addPicture(picture);
+    });
+
     var renderContent = this.template({
       pictures: this.collection
     });

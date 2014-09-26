@@ -3,10 +3,10 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
 
   url: "api/pictures",
 
-  comparator: function(picture) {
-    return picture.get("id");
-    // use -picture.get("views"); to sort by popularity
-  },
+  // comparator: function(picture) {
+  //   return picture.get("id");
+  //   // use -picture.get("views"); to sort by popularity
+  // },
 
   getOrFetch: function(id) {
     var picture = this.get(id);

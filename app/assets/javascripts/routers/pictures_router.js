@@ -1,8 +1,13 @@
 Picturito.Routers.Pictures = Backbone.Router.extend({
   initialize: function(options) {
     this.$main = options.$main;
-    this.picturesCollection = Picturito.pictures;
     this.$activities = options.$activities;
+    this.$activitiesBtn = options.$activitiesBtn;
+
+    this.activitiesCollection = Picturito.activities;
+    this.picturesCollection = Picturito.pictures;
+
+    this.renderActivities();
 
     // set up modal(options.$navBarBtn) view
   },
@@ -12,7 +17,13 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     "picture/new": "newPicture",
     "picture/:id": "show",
     "picture/:id/edit": "edit",
-    "profile": "profile"
+    "profile": "profile",
+  },
+
+  renderActivities: function() {
+    // stick these in $activities
+    this.activitiesCollection.fetch();
+    var activitiesIndex = new Picturito.Views.
   },
 
   profile: function() {

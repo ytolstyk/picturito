@@ -13,6 +13,8 @@
 
 class Activity < ActiveRecord::Base
   validates :owner_id, :user_id, :picture_id, :action, presence: true
+  validates_uniqueness_of :user_id, scope: [:picture_id, :action]
+
   validate :user_is_not_owner
 
   belongs_to :user

@@ -6,12 +6,28 @@
   <div class="picture-views">
     Views: <%= picture.escape("views") %>
   </div>
-  <div class="picture-title">
-    <%= picture.escape("title") %>
+
+  <div class="picture-info">
+    <div class="picture-title">
+      <%= picture.escape("title") %>
+    </div>
+    <div class="picture-author">
+      <%= picture.escape("username") %>
+    </div>
   </div>
+
   <div class="picture-like">
-    <% var color = picture.escape("user_liked") === "true" ? "red" : "" %>
-    <span class="glyphicon glyphicon-heart" style="color: <%= color %>;"></span>
-    <div><%= picture.escape("likes") %></div>
+    <% var color = picture.escape("user_liked") === "true" ? "firebrick" : "white" %>
+    
+    <div class="heart">
+      <span class="glyphicon glyphicon-heart" style="color: <%= color %>;"></span>
+    </div>
+    
+    <div class="likes-count">
+      <span class="span-likes-count">
+        <%= picture.escape("likes") %>
+      </span>
+    </div>
+
   </div>
 </div>

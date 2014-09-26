@@ -4,16 +4,20 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   splashTemplate: JST['pictures/show_splash'],
 
   initialize: function() {
-    this.listenTo(this.model, "sync add remove reset", this.render);
+    this.listenTo(this.model, "sync reset", this.render);
 
-    // listening for 'add' will call callback in order received from the server
     this.listenTo(this.model.comments(), "add", this.addComment);
     this.listenTo(this.model.comments(), "remove", this.removeComment);
 
+    this.splash = false;
+
     var view = this;
     this.model.comments().each(function(comment) {
-      view.addComment(comment);
+      view.addCommentBefore(comment);
     });
+
+    // silly?
+    $(document).on("keydown", this.keyHandler.bind(view));
   },
 
   events: {
@@ -22,14 +26,38 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     "submit form.new-comment": "createComment"
   },
 
+  keyHandler: function(key) {
+    if (this.splash === false) {
+      return;
+    }
+
+    switch(key.which) {
+      case 27: // escape
+        this.render();
+        break;
+      default:
+        return;
+    }
+  },
+
+  addCommentBefore: function(comment) {
+    console.log("addCommentBeofre");
+    var commentShow = new Picturito.Views.CommentShow({
+      model: comment
+    });
+    comment.fetch();
+
+    this.addSubview(".ul-comments", commentShow);
+  },
+
   addComment: function(comment) {
+    console.log("addCOmment");
     var commentShow = new Picturito.Views.CommentShow({
       model: comment
     });
     comment.fetch();
 
     this.addCommentSubview(".ul-comments", commentShow);
-    // this.addSubview(".ul-comments", commentShow);
   },
 
   createComment: function(event) {
@@ -67,6 +95,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     var renderContent = this.splashTemplate({
       picture: this.model
     });
+    this.splash = true;
 
     this.$el.html(renderContent);
     return this;
@@ -76,6 +105,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     var renderContent = this.template({
       picture: this.model
     });
+    this.splash = false;
 
     this.$el.html(renderContent);
     this.attachSubviews();

@@ -8,7 +8,9 @@ window.Picturito = {
     console.log("started backbone");
 
     new Picturito.Routers.Pictures({
-      $main: $("#main")
+      $main: $("#main"),
+      $activities: $("ul.activities"),
+      $activitiesBtn: $("a.dropdown-toggle")
     });
 
     Backbone.history.start();
@@ -48,7 +50,6 @@ $(function () {
 
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
-    // removeAlert();
     var $form = $(".picture-upload-form");
     var title = $($form.find(".picture-title")).val();
     var description = $($form.find(".picture-description")).val();
