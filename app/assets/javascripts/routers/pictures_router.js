@@ -1,14 +1,16 @@
 Picturito.Routers.Pictures = Backbone.Router.extend({
   initialize: function(options) {
     this.$main = options.$main;
-    this.$activities = options.$activities;
+
+    this.$navbarActivities = options.$navbarActivities;
     this.$activitiesBtn = options.$activitiesBtn;
 
     this.activitiesCollection = Picturito.activities;
     this.picturesCollection = Picturito.pictures;
 
     this.renderActivities();
-
+    var router = this;
+    this.$activitiesBtn.on("click", router.renderActivities.bind(router));
     // set up modal(options.$navBarBtn) view
   },
 
@@ -21,9 +23,19 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   renderActivities: function() {
-    // stick these in $activities
+    // make the activities view to later make subviews
     this.activitiesCollection.fetch();
-    var activitiesIndex = new Picturito.Views.
+    var activitiesIndex = new Picturito.Views.ActivitiesIndex({
+      collection: this.activitiesCollection
+    });
+
+    this._swapActivities(activitiesIndex);
+  },
+
+  _swapActivities: function(view){
+    this._currentActivities && this._currentActivities.remove();
+    this._currentActivities = view;
+    this.$navbarActivities.html(view.render().$el);
   },
 
   profile: function() {

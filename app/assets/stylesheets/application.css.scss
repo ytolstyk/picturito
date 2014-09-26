@@ -108,14 +108,14 @@ div.inline-block {
 
 div.picture-like {
   text-shadow: 1px 1px 3px;
-  background-color: grey;
+  background-color: rgb(3, 3, 3);
+  background-color: rgba(3, 3, 3, 0.2);
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 45px;
+  width: 40px;
   height: 37px;
   font-size: 30px;
-  opacity: 0.3;
   text-align: center;
   transition: all 0.2s ease-in-out;
 }

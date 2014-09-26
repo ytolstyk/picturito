@@ -32,7 +32,7 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
     });
 
     var renderContent = this.template({
-      pictures: this.collection
+      // pictures: this.collection
     });
 
     this.$el.html(renderContent);

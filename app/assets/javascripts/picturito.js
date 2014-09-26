@@ -9,7 +9,7 @@ window.Picturito = {
 
     new Picturito.Routers.Pictures({
       $main: $("#main"),
-      $activities: $("ul.activities"),
+      $navbarActivities: $("ul.nav.navbar-nav.activities"),
       $activitiesBtn: $("a.dropdown-toggle")
     });
 

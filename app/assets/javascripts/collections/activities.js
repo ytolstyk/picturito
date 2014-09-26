@@ -3,4 +3,4 @@ Picturito.Collections.Activities = Backbone.Collection.extend({
   url: "api/activities"
 });
 
-Picturito.activites = new Picturito.Collections.Activities();
+Picturito.activities = new Picturito.Collections.Activities();
