@@ -13,6 +13,7 @@
 
 class Activity < ActiveRecord::Base
   validates :owner_id, :user_id, :picture_id, :action, presence: true
+  validate :user_is_not_owner
 
   belongs_to :user
   belongs_to(
@@ -23,5 +24,10 @@ class Activity < ActiveRecord::Base
   )
   belongs_to :picture
 
-  
+  def user_is_not_owner
+    if self.user_id == self.owner_id
+      self.errors[:base] << "Can't create activity record for yourself"
+    end
+  end
+
 end

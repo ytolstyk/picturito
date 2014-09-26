@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :activities
 
   has_many(
-    :own_activites,
+    :own_activities,
     class_name: "Activity",
     foreign_key: :owner_id,
     primary_key: :id

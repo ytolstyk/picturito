@@ -2,6 +2,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   initialize: function(options) {
     this.$main = options.$main;
     this.picturesCollection = Picturito.pictures;
+    this.$activities = options.$activities;
 
     // set up modal(options.$navBarBtn) view
   },

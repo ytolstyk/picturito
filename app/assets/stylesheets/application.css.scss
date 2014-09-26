@@ -99,3 +99,9 @@ div.inline-block {
 .div-new-comment {
   width: 500px;
 }
+
+.scrollable-menu {
+  height: auto;
+  max-height: 300px;
+  overflow-x: hidden;
+}

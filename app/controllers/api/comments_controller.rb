@@ -17,13 +17,15 @@ module Api
       @comment.user_id = current_user.id
 
       if @comment.save
-        # make an activity record
-        Activity.create(
-          user_id: current_user.id,
-          owner_id: @comment.picture.user.id,
-          action: "commented on",
-          picture_id: @comment.picture.id
-          )
+        # make an activity record unless on yourself
+        unless current_user.id == @comment.picture.user.id
+          Activity.create(
+            user_id: current_user.id,
+            owner_id: @comment.picture.user.id,
+            action: "commented on",
+            picture_id: @comment.picture.id
+            )
+        end
 
         render json: @comment
       else

@@ -9,13 +9,15 @@ module Api
       @like.user = current_user
 
       if @like.save
-        # make an activity record
-        Activity.create(
-          user_id: current_user.id,
-          owner_id: @like.picture.user.id,
-          action: "liked",
-          picture_id: @like.picture.id
-          )
+        # make an activity record unless on yourself
+        unless current_user.id == @like.picture.user.id
+          Activity.create(
+            user_id: current_user.id,
+            owner_id: @like.picture.user.id,
+            action: "liked",
+            picture_id: @like.picture.id
+            )
+        end
 
         render json: @like
       else
