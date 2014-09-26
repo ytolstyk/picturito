@@ -3,7 +3,7 @@
 # Table name: pictures
 #
 #  id                   :integer          not null, primary key
-#  title                :string(255)
+#  title                :string(255)      default("*")
 #  description          :text
 #  user_id              :integer          not null
 #  created_at           :datetime

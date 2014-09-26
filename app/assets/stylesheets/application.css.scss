@@ -87,6 +87,8 @@ div.inline-block {
   display: inline-block;
 }
 
+/*COMMENTS*/
+
 .show-comments {
   width: 500px;
 }
@@ -94,26 +96,48 @@ div.inline-block {
 .comment-body {
   display: inline-block;
   width: 450px;
+  padding-right: 20px;
 }
 
 .div-new-comment {
   width: 500px;
 }
 
-.scrollable-menu {
-  height: auto;
-  max-height: 300px;
-  overflow-x: hidden;
+.li-comment:hover {
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
 }
 
+.li_comment:hover {
+
+}
+
+.li-comment {
+  position: relative;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.close-comment {
+  position: absolute;
+  right:10px;
+  top:10px;
+  transform:translateY(-50%);
+  border:0;
+  background:none;
+}
+
+/*LIKES*/
+
 div.picture-like {
+  opacity: 0;
   text-shadow: 1px 1px 3px;
   background-color: rgb(3, 3, 3);
   background-color: rgba(3, 3, 3, 0.2);
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 40px;
+  width: 37px;
   height: 37px;
   font-size: 30px;
   text-align: center;
@@ -128,6 +152,10 @@ div.picture-like:hover {
 div.picture-like:hover .likes-count {
   font-size: 20px;
   opacity: 1;
+}
+
+div.heart {
+  padding-right: 3px;
 }
 
 .span-likes-count {
@@ -147,7 +175,14 @@ div.likes-count {
 .index-picture-container {
   position: relative;
   margin: 0 auto;
+  transition: all 0.2s ease-in-out;
 }
+
+.index-picture-container:hover .picture-like{
+  opacity: 1;
+}
+
+/*ACTIVITY*/
 
 .li-activity {
   line-height: 100%;
@@ -185,4 +220,10 @@ span.vertical {
 
 .activity-time {
   font-size: 10px;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 300px;
+  overflow-x: hidden;
 }

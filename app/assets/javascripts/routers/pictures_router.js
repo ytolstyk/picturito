@@ -12,8 +12,9 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
       this.renderActivities();
     }
     var router = this;
-    this.$activitiesBtn.on("click", router.renderActivities.bind(router));
+    // this.$activitiesBtn.on("click", router.renderActivities.bind(router));
     // set up modal(options.$navBarBtn) view
+    // this.$navbarActivities.on('show.bs.dropdown', 'li.dropdown', router.renderActivities.bind(router));
   },
 
   routes: {

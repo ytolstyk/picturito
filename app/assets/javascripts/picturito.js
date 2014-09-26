@@ -10,7 +10,7 @@ window.Picturito = {
     new Picturito.Routers.Pictures({
       $main: $("#main"),
       $navbarActivities: $("ul.nav.navbar-nav.activities"),
-      $activitiesBtn: $("a.dropdown-toggle")
+      $activitiesBtn: $("#activity-button")
     });
 
     Backbone.history.start();

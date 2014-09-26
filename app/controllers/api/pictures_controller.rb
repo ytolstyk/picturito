@@ -20,6 +20,7 @@ module Api
     def create
       @picture = Picture.new(picture_params)
       @picture.user_id = current_user.id
+      @picture.title = "*" if @picture.title == ""
 
       if @picture.save
         render json: @picture
