@@ -8,7 +8,9 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this.activitiesCollection = Picturito.activities;
     this.picturesCollection = Picturito.pictures;
 
-    this.renderActivities();
+    if (this.$navbarActivities.length !== 0) {
+      this.renderActivities();
+    }
     var router = this;
     this.$activitiesBtn.on("click", router.renderActivities.bind(router));
     // set up modal(options.$navBarBtn) view
@@ -23,7 +25,6 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   renderActivities: function() {
-    // make the activities view to later make subviews
     this.activitiesCollection.fetch();
     var activitiesIndex = new Picturito.Views.ActivitiesIndex({
       collection: this.activitiesCollection

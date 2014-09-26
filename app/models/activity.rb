@@ -26,6 +26,8 @@ class Activity < ActiveRecord::Base
   )
   belongs_to :picture
 
+  default_scope -> { order(:id => :desc) }
+
   def user_is_not_owner
     if self.user_id == self.owner_id
       self.errors[:base] << "Can't create activity record for yourself"

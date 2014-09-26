@@ -18,6 +18,8 @@
 class Picture < ActiveRecord::Base
   validates :img_url, presence: true
 
+  paginates_per 15
+
   belongs_to :user
 
   has_many :users

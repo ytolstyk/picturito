@@ -41,7 +41,6 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   addCommentBefore: function(comment) {
-    console.log("addCommentBeofre");
     var commentShow = new Picturito.Views.CommentShow({
       model: comment
     });
@@ -51,7 +50,6 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   addComment: function(comment) {
-    console.log("addCOmment");
     var commentShow = new Picturito.Views.CommentShow({
       model: comment
     });

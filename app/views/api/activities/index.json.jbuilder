@@ -5,5 +5,6 @@ json.array!(@activities) do |activity|
   json.action activity.action
   json.picture activity.picture.title
   json.picture_id activity.picture.id
+  json.viewed activity.viewed
   json.current_user current_user.username
 end

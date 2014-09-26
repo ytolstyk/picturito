@@ -10,10 +10,17 @@ Picturito.Views.ActivityShow = Backbone.View.extend({
 
   events: {
     "click .close-activity": "removeActivity",
+    "click .a-activity": "markViewed"
+  },
+
+  markViewed: function() {
+    this.model.set("viewed", true);
+    this.model.save();
   },
 
   removeActivity: function(event) {
     event.preventDefault();
+    event.stopPropagation();
     this.model.destroy();
     this.remove();
   },

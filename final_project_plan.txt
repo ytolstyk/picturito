@@ -31,3 +31,5 @@ PictureLike model
   Picture#currentUserLike() returns PictureLike model
   custom trigger: this.listenTo(this.model, "like", this.render)
   .trigger("like") inside Picture#like()
+
+

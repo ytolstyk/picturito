@@ -6,7 +6,7 @@ Picturito.Views.ActivitiesIndex = Backbone.CompositeView.extend({
   template: JST['activities/index'],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add remove like", this.render);
+    this.listenTo(this.collection, "sync add like", this.render);
   },
 
   addActivity: function(activity) {
@@ -15,14 +15,6 @@ Picturito.Views.ActivitiesIndex = Backbone.CompositeView.extend({
     });
 
     this.addSubview(".ul-activities", activityShow);
-  },
-
-  events: {
-    "click .close-activity": "keepOpen"
-  },
-
-  keepOpen: function(event) {
-    event.stopPropagation();
   },
 
   render: function() {

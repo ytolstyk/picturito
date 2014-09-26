@@ -1,5 +1,6 @@
-<a href="#/picture/<%= activity.escape('picture_id') %>">
+<% if (activity.get("viewed") === true) { var klass = "viewed-activity" } else { var klass = "" } %>
 
+<a class="a-activity <%= klass %>" href="#/picture/<%= activity.escape('picture_id') %>">
   <span class="vertical"><b><%= activity.escape("username") %></b> <%= activity.escape("action") %> <b><%= activity.escape("picture") %></b></span>
 
 </a>
