@@ -34,7 +34,6 @@ Picturito.Views.PictureIndexShow = Backbone.View.extend({
       success: function() {
         that.model.set("user_liked", "false");
         that.model.set("likes", likes)
-        // that.model.fetch();
         that.model.trigger('like');
       }
     });
@@ -51,7 +50,6 @@ Picturito.Views.PictureIndexShow = Backbone.View.extend({
       success: function() {
         that.model.set("user_liked", "true");
         that.model.set("likes", likes);
-        // that.model.fetch();
         that.model.trigger('like');
       }
     });

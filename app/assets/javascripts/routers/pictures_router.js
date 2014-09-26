@@ -10,7 +10,12 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     "": "index",
     "picture/new": "newPicture",
     "picture/:id": "show",
-    "picture/:id/edit": "edit"
+    "picture/:id/edit": "edit",
+    "profile": "profile"
+  },
+
+  profile: function() {
+    // make this shit!
   },
 
   index: function() {

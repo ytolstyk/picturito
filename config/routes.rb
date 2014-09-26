@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :pictures
     resources :comments
     resources :picture_likes
+    resources :activities
   end
 end

@@ -22,6 +22,8 @@ class Picture < ActiveRecord::Base
 
   has_many :users
 
+  has_many :activities
+
   has_many(:picture_likes,
     class_name: "PictureLike",
     primary_key: :id,

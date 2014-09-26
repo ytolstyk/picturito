@@ -16,12 +16,14 @@
     <% if current_user %>
       <ul class="nav navbar-nav">
         <li><a href="#">Activity</a></li>
-        <li><a href="#/profile">Profile</a></li>
         <li><a href="#"
           data-toggle="modal"
           data-target="#pictureUpload">Upload</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#/profile"><%= current_user.username %></a>
+        </li>
         <li>
           <%= link_to "Sign out", session_url, method: :delete %>
         </li>

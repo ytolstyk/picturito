@@ -10,6 +10,13 @@ module Api
 
       if @like.save
         # make an activity record
+        Activity.create(
+          user_id: current_user.id,
+          owner_id: @like.picture.user.id,
+          action: "liked",
+          picture_id: @like.picture.id
+          )
+
         render json: @like
       else
         render json: @like.errors.full_messages
@@ -19,6 +26,12 @@ module Api
     def destroy
       @like = current_user.picture_likes.find_by_picture_id(params[:id])
       @like.destroy
+
+      # destroy activity
+      @like.user.activities.where(picture_id: @like.picture.id).each do |act|
+        act.destroy
+      end
+
       render json: {}
     end
 

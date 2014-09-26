@@ -18,6 +18,13 @@ module Api
 
       if @comment.save
         # make an activity record
+        Activity.create(
+          user_id: current_user.id,
+          owner_id: @comment.picture.user.id,
+          action: "commented on",
+          picture_id: @comment.picture.id
+          )
+
         render json: @comment
       else
         render json: @comment.errors.full_messages
@@ -30,6 +37,12 @@ module Api
     def destroy
       @comment = Comment.find(params[:id])
       @comment.destroy
+
+      # destroy activity
+      @comment.user.activities.where(picture_id: @comment.picture.id).each do |act|
+        act.destroy
+      end
+      
       render json: {}
     end
 
