@@ -148,3 +148,43 @@ div.likes-count {
   position: relative;
   margin: 0 auto;
 }
+
+.li-activity {
+  line-height: 100%;
+  position:relative;
+  padding-right: 30px;
+  /*width: 108%;
+  margin-left: -8px;*/
+}
+
+span.vertical {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+/*.x {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: black;
+  text-shadow: 0 1px 0 white;
+  opacity: 0.2;
+  display: inline-block;
+  filter: alpha(opacity=20);
+}*/
+
+.close-activity {
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity: 0.3;
+  border:0;
+  background:none;
+}
+
+.close-activity:hover {
+  opacity: 0.9;
+}

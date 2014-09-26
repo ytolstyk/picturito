@@ -1,5 +1,6 @@
 Picturito.Views.ActivityShow = Backbone.View.extend({
   tagName: "li",
+  className: "li-activity",
 
   template: JST["activities/show"],
 
@@ -8,7 +9,13 @@ Picturito.Views.ActivityShow = Backbone.View.extend({
   },
 
   events: {
-    "click .delete": "removeActivity"
+    "click .close-activity": "removeActivity",
+  },
+
+  removeActivity: function(event) {
+    event.preventDefault();
+    this.model.destroy();
+    this.remove();
   },
 
   render: function() {

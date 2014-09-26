@@ -17,6 +17,14 @@ Picturito.Views.ActivitiesIndex = Backbone.CompositeView.extend({
     this.addSubview(".ul-activities", activityShow);
   },
 
+  events: {
+    "click .close-activity": "keepOpen"
+  },
+
+  keepOpen: function(event) {
+    event.stopPropagation();
+  },
+
   render: function() {
     this._subviews = {};
 
