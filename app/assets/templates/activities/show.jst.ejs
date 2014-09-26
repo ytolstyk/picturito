@@ -1,7 +1,8 @@
-<% if (activity.get("viewed") === true) { var klass = "viewed-activity" } else { var klass = "" } %>
+<% if (activity.get("viewed")) { var klass = "viewed-activity" } else { var klass = "" } %>
 
 <a class="a-activity <%= klass %>" href="#/picture/<%= activity.escape('picture_id') %>">
   <span class="vertical"><b><%= activity.escape("username") %></b> <%= activity.escape("action") %> <b><%= activity.escape("picture") %></b></span>
+  <span class="block activity-time"><%= activity.escape("created_at") %></span>
 
 </a>
 <button class="close-activity">x</button>

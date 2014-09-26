@@ -5,4 +5,5 @@ json.array!(@comments) do |comment|
   json.username comment.user.username
   json.user_id comment.user.id
   json.current_user current_user.id
+  json.created_at comment.created_at.asctime
 end

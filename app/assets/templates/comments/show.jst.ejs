@@ -6,6 +6,9 @@
   <button class="close delete-comment">x</button>
 <% }; %>
 
-<div class="comment-author">
+<div class="comment-author inline-block">
   <%= comment.escape("username") %>
+</div>
+<div class="comment-datetime activity-time inline-block">
+  (<%= comment.escape("created_at") %>)
 </div>
