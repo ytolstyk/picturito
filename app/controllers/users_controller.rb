@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # @user.avatars << Avatar.first if @user.avatars.empty?
 
     if @user.save
       login_user!(@user)

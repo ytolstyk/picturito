@@ -53,7 +53,6 @@ $(function () {
     $(".picture-upload").attr("data-type", "upload");
   });
 
-  // figure out where things are coming from
   $("#avatar-upload").on("click", function(event) {
     $(".picture-upload").attr("data-type", "avatar");
   });
