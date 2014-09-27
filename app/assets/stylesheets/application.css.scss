@@ -105,6 +105,11 @@ button.load-more {
   color:grey;
 }
 
+div.avatar {
+  float: left;
+  margin-right: 10px;
+}
+
 .picture-splash-header, .picture-splash-footer, .picture-splash-body {
   position:absolute;
   left:0;
@@ -114,6 +119,7 @@ button.load-more {
   padding: 5px;
   height: 70px;
   top: 0;
+  max-width: 1000px;
 }
 .picture-splash-footer {
   padding: 5px;
@@ -187,7 +193,8 @@ div.inline-block {
 .ul-comments {
   margin: 0;
   padding: 0;
-  padding-right: 10px;
+  padding-top: 10px;
+  width: 500px;
 }
 
 .show-comments {
@@ -196,8 +203,8 @@ div.inline-block {
 
 .comment-body {
   display: inline-block;
-  width: 450px;
-  padding-right: 20px;
+  width: 480px;
+  padding-right: 15px;
 }
 
 .div-new-comment {
@@ -213,10 +220,20 @@ div.inline-block {
   position: relative;
   opacity: 1;
   transition: all 0.2s ease-in-out;
+  padding: 5px;
 }
 
 .comment-avatar {
   float: left;
+  margin-right: 5px;
+}
+
+.comment-author {
+  color: grey;
+}
+
+.comment-datetime {
+  color: grey;
 }
 
 .close-comment {

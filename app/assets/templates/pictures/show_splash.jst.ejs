@@ -2,7 +2,9 @@
   
     <div class="picture-splash-header">
       <div class="title">
-        <div class="avatar"></div>
+        <div class="avatar">
+          <img src="<%= picture.escape('avatar') %>">
+        </div>
         <h2 class="h2-title"><%= picture.escape("title") %></h2>
         <span><%= picture.escape("username") %></span>
       </div>
