@@ -18,9 +18,9 @@ module Api
     end
 
     def create
-      unless current_user.avatars.empty?
-        current_user.avatars.destroy.each {|el| el.destroy}
-      end
+      # unless current_user.avatars.empty?
+      #   current_user.avatars.destroy.each {|el| el.destroy}
+      # end
       @avatar = current_user.avatars.create(avatar_params)
 
       if @avatar.save

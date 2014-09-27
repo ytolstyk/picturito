@@ -18,6 +18,8 @@ class Avatar < ActiveRecord::Base
 
   belongs_to :user
 
+  default_scope -> { order(:id => :asc) }
+
   has_attached_file :image, styles: {
     big: "250x250#",
     small: "50x50#"

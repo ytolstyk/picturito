@@ -1,9 +1,12 @@
-<div class="title">
-  <div class="avatar"></div>
+<div class="title clearfix">
+  <div class="picture-avatar">
+    <img src="<%= picture.escape('avatar') %>">
+  </div>
   <h2 class="h2-title"><%= picture.escape("title") %></h2>
   <span><%= picture.escape("username") %></span>
 </div>
-<h3>Views: <%= picture.escape("views") %></h3>
+
+<h4>Views: <%= picture.escape("views") %></h4>
 <div class="div-picture">
   <img src="<%= picture.escape('image_url_big') %>">
 </div>

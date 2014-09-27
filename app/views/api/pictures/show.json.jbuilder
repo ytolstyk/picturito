@@ -7,6 +7,12 @@ json.views @picture.views
 json.username @picture.user.username
 json.likes @picture.like_count
 json.user_liked @picture.user_liked?(current_user)
+if @picture.user.avatars.empty?
+  json.avatar "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
+else
+  json.avatar @picture.user.avatars.last.image.url(:small)
+end
+
 json.comments @picture.comments do |comment|
   json.id comment.id
   json.body comment.body
@@ -14,7 +20,10 @@ json.comments @picture.comments do |comment|
   json.username comment.user.username
   json.user_id comment.user.id
   json.current_user current_user.id
-  # json.avatar_big comment.user.avatars.first.image.url(:big)
-  # json.avatar_small comment.user.avatars.first.image.url(:small)
+  if comment.user.avatars.empty?
+    json.avatar "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
+  else
+    json.avatar comment.user.avatars.last.image.url(:small)
+  end
 end
 json.current_user current_user.id

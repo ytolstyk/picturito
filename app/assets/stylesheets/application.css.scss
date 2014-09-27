@@ -67,6 +67,26 @@ button.load-more {
   text-align: center;
 }
 
+.picture-avatar {
+  float: left;
+  margin-right: 5px;
+}
+
+.title {
+  display: inline-block;
+  width: 1000px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.h2-title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .li-picture {
   float: left;
   display: inline;
@@ -112,15 +132,6 @@ button.load-more {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-.h2-title {
-  margin: 0;
-}
-
-.title {
-  margin-left: 20px;
-  display: inline-block;
 }
 
 div.inline-block {
@@ -173,6 +184,12 @@ div.inline-block {
 
 /*COMMENTS*/
 
+.ul-comments {
+  margin: 0;
+  padding: 0;
+  padding-right: 10px;
+}
+
 .show-comments {
   width: 500px;
 }
@@ -192,14 +209,14 @@ div.inline-block {
   transition: all 0.2s ease-in-out;
 }
 
-.li_comment:hover {
-
-}
-
 .li-comment {
   position: relative;
   opacity: 1;
   transition: all 0.2s ease-in-out;
+}
+
+.comment-avatar {
+  float: left;
 }
 
 .close-comment {

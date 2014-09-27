@@ -1,7 +1,7 @@
 Picturito.Views.CommentShow = Backbone.View.extend({
   tagName: "li",
 
-  className: "li-comment",
+  className: "li-comment clearfix",
 
   template: JST["comments/show"],
 
