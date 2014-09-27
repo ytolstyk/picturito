@@ -73,6 +73,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   _swapView: function(view) {
+    this.renderActivities();
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$main.html(view.render().$el);

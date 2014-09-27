@@ -20,7 +20,7 @@ class Avatar < ActiveRecord::Base
 
   has_attached_file :image, styles: {
     big: "250x250#",
-    small: "100x100#"
+    small: "50x50#"
   }
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
