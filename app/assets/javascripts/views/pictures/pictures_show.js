@@ -17,6 +17,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     });
 
     // silly?
+    //unsubscribe from this event upon remove
     $(document).on("keydown", this.keyHandler.bind(view));
   },
 
@@ -97,6 +98,11 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
     this.$el.html(renderContent);
     return this;
+  },
+
+  remove: function(){
+    $(document).off("keydown");
+    Backbone.CompositeView.prototype.remove.call(this);
   },
 
   render: function() {

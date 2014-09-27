@@ -10,7 +10,7 @@ window.Picturito = {
     new Picturito.Routers.Pictures({
       $main: $("#main"),
       $navbarActivities: $("ul.nav.navbar-nav.activities"),
-      $activitiesBtn: $("#activity-button")
+      $activitiesBtn: $("ul.activities")
     });
 
     Backbone.history.start();
@@ -34,6 +34,7 @@ $(function () {
   };
 
   function displayError($form) {
+    $("div.alert.alert-danger").remove();
     var $alert = $("<div class='alert alert-danger inline-block'>");
     $alert.html("Something went wrong with your upload");
     $(".modal-content").find(".modal-footer").prepend($alert);
@@ -48,16 +49,36 @@ $(function () {
     removeAlert();
   });
 
+  $("#picture-upload").on("click", function(event) {
+    $(".picture-upload").attr("data-type", "upload");
+  });
+
+  // figure out where things are coming from
+  $("#avatar-upload").on("click", function(event) {
+    $(".picture-upload").attr("data-type", "avatar");
+  });
+
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
+    var uploadType = $(event.currentTarget).data("type");
     var $form = $(".picture-upload-form");
     var title = $($form.find(".picture-title")).val();
     var description = $($form.find(".picture-description")).val();
     var file = $form.find(".picture-file")[0].files[0];
-    var picture = new Picturito.Models.Picture({
-      title: title,
-      description: description
-    });
+
+    if (uploadType === "avatar") {
+      var picture = new Picturito.Models.Avatar({
+        title: title
+      });
+      var column = "image";
+    } else {
+      var picture = new Picturito.Models.Picture({
+        title: title,
+        description: description
+      });
+      var column = "img_url";
+    }
+
     var reader = new FileReader();
     var self = this;
     var uploadCallback = _toggleFormEnabled.bind(this, $form, false);
@@ -65,7 +86,8 @@ $(function () {
     _toggleFormEnabled($form, true);
     reader.addEventListener("load", function(fileEvent) {
       var fileContent = this.result;
-      picture.set("img_url", fileContent);
+      picture.set(column, fileContent);
+      // picture.set("img_url", fileContent);
       picture.save([], {
         error: function() {
           uploadCallback();

@@ -2,25 +2,26 @@
 #
 # Table name: avatars
 #
-#  id                  :integer          not null, primary key
-#  user_id             :integer
-#  avatar_file_name    :string(255)
-#  avatar_content_type :string(255)
-#  avatar_file_size    :integer
-#  avatar_updated_at   :datetime
-#  created_at          :datetime
-#  updated_at          :datetime
+#  id                 :integer          not null, primary key
+#  user_id            :integer
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  title              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
 #
 
 class Avatar < ActiveRecord::Base
-  validates :avatar, presence: true
+  validates :image, presence: true
 
   belongs_to :user
 
-  has_attached_file :avatar, styles: {
+  has_attached_file :image, styles: {
     big: "250x250#",
     small: "100x100#"
   }
 
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end

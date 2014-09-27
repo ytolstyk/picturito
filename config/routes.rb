@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :comments
     resources :picture_likes
     resources :activities
+    resources :avatars
   end
 end

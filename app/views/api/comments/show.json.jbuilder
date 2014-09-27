@@ -5,3 +5,4 @@ json.username @comment.user.username
 json.user_id @comment.user.id
 json.current_user current_user.id
 json.created_at @comment.created_at.asctime
+# json.avatar @comment.user.avatar.avatar.url(:small)
