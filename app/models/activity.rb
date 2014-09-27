@@ -29,6 +29,8 @@ class Activity < ActiveRecord::Base
 
   default_scope -> { order(:id => :desc) }
 
+  paginates_per 5
+
   def user_is_not_owner
     if self.user_id == self.owner_id
       self.errors[:base] << "Can't create activity record for yourself"

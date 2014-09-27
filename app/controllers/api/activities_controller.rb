@@ -1,7 +1,7 @@
 module Api
   class ActivitiesController < ApiController
     def index
-      @activities = current_user.own_activities
+      @activities = current_user.own_activities.page params[:page]
     end
 
     def destroy

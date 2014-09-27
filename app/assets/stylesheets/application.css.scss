@@ -63,6 +63,10 @@ button.load-more {
 
 /*PICTURE SHOW */
 
+.div-picture {
+  text-align: center;
+}
+
 .li-picture {
   float: left;
   display: inline;
@@ -276,6 +280,11 @@ div.likes-count {
 
 }
 
+.load-more-activities {
+  text-align: center;
+  cursor: pointer;
+}
+
 span.vertical {
   display: inline-block;
   vertical-align: middle;
@@ -314,7 +323,7 @@ span.vertical {
 
 .scrollable-menu {
   height: auto;
-  max-height: 300px;
+  max-height: 400px;
   overflow-x: hidden;
 }
 

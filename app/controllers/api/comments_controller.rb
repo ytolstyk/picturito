@@ -1,7 +1,7 @@
 module Api
   class CommentsController < ApiController
     def index
-      @comments = Comment.all
+      @comments = Comment.all.order(:id).page params[:page]
     end
 
     def show

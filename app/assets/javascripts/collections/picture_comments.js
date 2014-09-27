@@ -9,5 +9,7 @@ Picturito.Collections.PictureComments = Backbone.Collection.extend({
 
   initialize: function(models, options) {
     this.picture = options.picture;
-  }
+    this.page = 1;
+  },
+
 });
