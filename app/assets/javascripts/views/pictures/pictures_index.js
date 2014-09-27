@@ -1,4 +1,5 @@
 Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
+  className: "picture-index-wrapper",
 
   template: JST['pictures/index'],
 

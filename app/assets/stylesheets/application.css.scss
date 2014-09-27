@@ -27,6 +27,42 @@
   height: 100%;
 }
 
+.index-pictures-container {
+  width: 870px;
+  margin: 0 auto;
+}
+
+ul.ul-pictures {
+  width: 870px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.picture-index-wrapper {
+  
+}
+
+button.load-more {
+  margin: 0 auto;
+  width: 830px;
+  display: block;
+}
+
+/*UPLOAD MODAL*/
+.upload-picture-title {
+
+}
+
+.upload-picture-description {
+
+}
+
+.upload-picture-file {
+
+}
+
+/*PICTURE SHOW */
+
 .li-picture {
   float: left;
   display: inline;
@@ -87,6 +123,50 @@ div.inline-block {
   display: inline-block;
 }
 
+/*PICTURE INDEX SHOW*/
+
+.index-picture-container:hover .picture-views {
+  opacity: 1;
+}
+
+.picture-views {
+  position: absolute;
+  right: 8px;
+  bottom: 12px;
+  text-shadow: 0px 0px 1px #000;
+  color: white;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.picture-info {
+  position: absolute;
+  max-width: 125px;
+  left: 8px;
+  bottom: 10px;
+  color: white;
+  text-shadow: 0px 0px 1px #000;
+  z-index: 50;
+}
+
+.picture-title {
+  font-size: 20px;
+  font-weight: 300;
+  max-width: 125px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picture-author {
+  font-weight: 100;
+  font-size: 13px;
+  max-width: 125px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /*COMMENTS*/
 
 .show-comments {
@@ -131,9 +211,9 @@ div.inline-block {
 
 div.picture-like {
   opacity: 0;
-  text-shadow: 1px 1px 3px;
-  background-color: rgb(3, 3, 3);
-  background-color: rgba(3, 3, 3, 0.2);
+  text-shadow: 0px 0px 2px #000;
+  /*background-color: rgb(3, 3, 3);
+  background-color: rgba(3, 3, 3, 0.2);*/
   position: absolute;
   top: 5px;
   right: 5px;
@@ -142,6 +222,7 @@ div.picture-like {
   font-size: 30px;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 div.picture-like:hover {
@@ -186,14 +267,23 @@ div.likes-count {
 
 .li-activity {
   line-height: 100%;
+  max-width: 500px;
   position:relative;
   padding-right: 30px;
+}
+
+.a-activity {
+
 }
 
 span.vertical {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .close-activity {
@@ -227,3 +317,6 @@ span.vertical {
   max-height: 300px;
   overflow-x: hidden;
 }
+
+/*MODAL UPLOAD*/
+

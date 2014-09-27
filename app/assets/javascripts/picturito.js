@@ -21,14 +21,16 @@ $(function () {
   Picturito.initialize();
 
   function _toggleFormEnabled($form, disable) {
-    $form.find(".picture-file").prop("disabled", disable);
+    $form.find(".upload-picture-file").prop("disabled", disable);
     $form.find(":input").prop("disabled", disable);
     $form.find("button").prop("disabled", disable);
   };
 
   function clearForm($form) {
+    var $alert = $("<div class='alert alert-success inline-block'>");
+    $alert.html("Success!");
+    $(".modal-content").find(".modal-footer").prepend($alert);
     $form.find(":input").val("");
-    removeAlert();
     $(".close").trigger("click");
     $(".refresh").trigger("click");
   };
@@ -45,25 +47,28 @@ $(function () {
     $(".modal-footer").find(".alert").remove();
   };
 
+
   $("#pictureUpload").on("hidden.bs.modal", function(event) {
     removeAlert();
   });
 
   $("#picture-upload").on("click", function(event) {
     $(".picture-upload").attr("data-type", "upload");
+    $("#Upload").text("Upload Picture");
   });
 
   $("#avatar-upload").on("click", function(event) {
     $(".picture-upload").attr("data-type", "avatar");
+    $("#Upload").text("Upload Avatar");
   });
 
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
     var uploadType = $(event.currentTarget).data("type");
     var $form = $(".picture-upload-form");
-    var title = $($form.find(".picture-title")).val();
-    var description = $($form.find(".picture-description")).val();
-    var file = $form.find(".picture-file")[0].files[0];
+    var title = $($form.find(".upload-picture-title")).val();
+    var description = $($form.find(".upload-picture-description")).val();
+    var file = $form.find(".upload-picture-file")[0].files[0];
 
     if (uploadType === "avatar") {
       var picture = new Picturito.Models.Avatar({
