@@ -6,22 +6,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    images = Dir.entries("./app/assets/images/backgrounds")
-    images.delete(".")
-    images.delete("..")
-    images.map! {|el| "/assets/backgrounds/#{el}"}
-    @image = images.sample
-
     @user = User.new
   end
 
   def create
-    images = Dir.entries("./app/assets/images/backgrounds")
-    images.delete(".")
-    images.delete("..")
-    images.map! {|el| "/assets/backgrounds/#{el}"}
-    @image = images.sample
-    
     @user = User.new(user_params)
 
     if @user.save

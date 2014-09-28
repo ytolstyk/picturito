@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :current_avatar
+  helper_method :background_image
 
   def login_user!(user)
     user.reset_session_token!
@@ -21,6 +22,15 @@ class ApplicationController < ActionController::Base
     else
       @current_avatar ||= current_user.avatars.last.image.url(:small)
     end
+  end
+
+  def background_image
+    images = Dir.entries("./app/assets/images/backgrounds")
+    images.delete(".")
+    images.delete("..")
+    images.delete(".DS_Store")
+    images.map! {|el| "/assets/backgrounds/#{el}"}
+    images.sample
   end
 
   def logout_user!(user)
