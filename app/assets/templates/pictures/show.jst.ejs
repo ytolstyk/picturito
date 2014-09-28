@@ -11,7 +11,20 @@
 </div>
 
 <div class="div-picture">
-  <img src="<%= picture.escape('image_url_big') %>">
+  <img src="<%= picture.escape('image_url_big') %>"
+       class="click-picture">
+  
+  <a href="#/picture/ <%= picture.escape("previous_picture") %>">
+    <div class="previous-picture inline-block">
+      <span class="glyphicon glyphicon-chevron-left">
+    </div>
+  </a>
+
+  <a href="#/picture/ <%= picture.escape("next_picture") %>">
+    <div class="next-picture inline-block">
+      <span class="glyphicon glyphicon-chevron-right">
+    </div>
+  </a>
 </div>
 
 <h3>Description</h3>

@@ -49,4 +49,24 @@ class Picture < ActiveRecord::Base
   def user_liked?(user)
     self.liked_users.include?(user)
   end
+
+  def next_picture
+    @index ||= get_self_index
+    index = (@index + 1) % @total
+    @pictures[index]
+  end
+
+  def previous_picture
+    @index ||= get_self_index
+    index = (@index - 1) % @total
+    @pictures[index]
+  end
+
+  private
+
+  def get_self_index
+    @total ||= Picture.count
+    @pictures ||= Picture.order(:id).pluck(:id)
+    @pictures.index(self.id)
+  end
 end

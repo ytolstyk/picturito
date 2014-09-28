@@ -7,6 +7,8 @@ json.views @picture.views
 json.username @picture.user.username
 json.likes @picture.like_count
 json.user_liked @picture.user_liked?(current_user)
+json.next_picture @picture.next_picture
+json.previous_picture @picture.previous_picture
 if @picture.user.avatars.empty?
   json.avatar "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
 else
