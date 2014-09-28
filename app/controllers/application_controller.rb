@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  helper_method :current_avatar
 
   def login_user!(user)
     user.reset_session_token!
@@ -12,6 +13,14 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by_session_token(session[:session_token])
+  end
+
+  def current_avatar
+    if current_user.avatars.empty?
+      @current_avatar ||= "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
+    else
+      @current_avatar ||= current_user.avatars.last.image.url(:small)
+    end
   end
 
   def logout_user!(user)
