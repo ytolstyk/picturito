@@ -5,8 +5,7 @@ window.Picturito = {
   Routers: {},
 
   initialize: function() {
-    console.log("started backbone");
-
+    
     new Picturito.Routers.Pictures({
       $main: $("#main"),
       $navbarActivities: $("ul.nav.navbar-nav.activities"),

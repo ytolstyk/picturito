@@ -33,3 +33,7 @@ PictureLike model
   .trigger("like") inside Picture#like()
 
 
+------------------------------
+1. using keys without memory leaks
+  - view gets initialized before old one gets removed
+2. utility controller for comments and user pages

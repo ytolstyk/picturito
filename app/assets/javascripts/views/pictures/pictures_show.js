@@ -18,7 +18,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
     // silly?
     //unsubscribe from this event upon remove
-    $(document).on("keydown", this.keyHandler.bind(view));
+    // $(document).on("keydown", this.keyHandler.bind(view));
   },
 
   events: {
@@ -28,16 +28,27 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   keyHandler: function(key) {
-    if (this.splash === false) {
-      return;
-    }
+    console.log("hitting a key");
 
-    switch(key.which) {
+    if (this.splash === true) {
+      switch(key.which) {
       case 27: // escape
         this.render();
         break;
       default:
         return;
+      }
+    } else {
+      switch(key.which) {
+        case 37: // left
+          $(".previous-picture").trigger("click");
+          break;
+        case 39: // right
+          $(".next-picture").trigger("click");
+          break;
+        default:
+          return;
+      }
     }
   },
 
@@ -91,6 +102,8 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   renderSplash: function() {
+    var view = this;
+    $(document).on("keydown", this.keyHandler.bind(view));
     var renderContent = this.splashTemplate({
       picture: this.model
     });
@@ -106,6 +119,9 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
+    var view = this;
+    $(document).off("keydown");
+    $(document).on("keydown", this.keyHandler.bind(view));
     var renderContent = this.template({
       picture: this.model
     });
