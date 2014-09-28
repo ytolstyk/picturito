@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :ensure_logged_in, except: [:new, :create]
 
+  def index
+    @users = User.all
+  end
+
   def new
     images = Dir.entries("./app/assets/images/backgrounds")
     images.delete(".")
@@ -30,8 +34,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user ||= User.find(params[:id])
-    render json: @user
+    @user = User.find(params[:id])
   end
 
   private

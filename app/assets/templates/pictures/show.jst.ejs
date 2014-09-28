@@ -6,7 +6,10 @@
   <span><%= picture.escape("username") %></span>
 </div>
 
-<h4>Views: <%= picture.escape("views") %></h4>
+<div class="picture-show-views">
+  <h4>Views: <%= picture.escape("views") %></h4>
+</div>
+
 <div class="div-picture">
   <img src="<%= picture.escape('image_url_big') %>">
 </div>
