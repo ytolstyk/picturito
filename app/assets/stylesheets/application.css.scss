@@ -76,34 +76,26 @@ button.load-more {
   cursor: pointer;
 }
 
-.div-picture:hover .previous-picture {
-  opacity: 1;
+.picture-index {
+  position: absolute;
+  top: 50%;
+  color: white;
+  text-shadow: 0px 0px 1px #000;
+  z-index: 5;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
 
-.div-picture:hover .next-picture {
+.div-picture:hover .picture-index {
   opacity: 1;
 }
 
 .previous-picture {
-  position: absolute;
   left: 5px;
-  top: 50%;
-  color: white;
-  text-shadow: 0px 0px 1px #000;
-  z-index: 5;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
 }
 
 .next-picture {
-  position: absolute;
-  top: 50%;
   right: 5px;
-  color: white;
-  text-shadow: 0px 0px 1px #000;
-  z-index: 5;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
 }
 
 .click-picture {
