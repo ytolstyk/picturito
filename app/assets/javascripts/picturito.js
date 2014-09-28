@@ -35,18 +35,22 @@ $(function () {
     $(".refresh").trigger("click");
   };
 
-  function displayError($form) {
+  function displayError($form, $btn) {
     $("div.alert.alert-danger").remove();
     var $alert = $("<div class='alert alert-danger inline-block'>");
     $alert.html("Something went wrong with your upload");
     $(".modal-content").find(".modal-footer").prepend($alert);
     _toggleFormEnabled($form, false);
+    resetButton($btn);
   };
 
   function removeAlert() {
     $(".modal-footer").find(".alert").remove();
   };
 
+  function resetButton($btn) {
+    $btn.button("reset");
+  };
 
   $("#pictureUpload").on("hidden.bs.modal", function(event) {
     removeAlert();
@@ -64,6 +68,8 @@ $(function () {
 
   $(".picture-upload").on("click", function(event) {
     event.preventDefault();
+    var $btn = $(this);
+    $btn.button("loading");
     var uploadType = $(event.currentTarget).data("type");
     var $form = $(".picture-upload-form");
     var title = $($form.find(".upload-picture-title")).val();
@@ -95,18 +101,19 @@ $(function () {
       picture.save([], {
         error: function() {
           uploadCallback();
-          displayError($form);
+          displayError($form, $btn);
         },
         success: function() {
           uploadCallback();
           clearForm($form);
+          resetButton($btn);
         },
         wait: true
       });
     });
 
     if (file === undefined) {
-      displayError($form);
+      displayError($form, $btn);
     } else {
       reader.readAsDataURL(file);
     }
