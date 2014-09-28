@@ -119,4 +119,11 @@ $(function () {
     }
   });
 
+  $(".guest-sign-in").on("click", function(event) {
+    event.preventDefault();
+    $("#userName").val("guest");
+    $("#userPassword").val("something");
+    $(".sign-in-button").trigger("click");
+  });
+
 });

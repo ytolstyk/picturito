@@ -2,12 +2,23 @@ class UsersController < ApplicationController
   before_action :ensure_logged_in, except: [:new, :create]
 
   def new
+    images = Dir.entries("./app/assets/images/backgrounds")
+    images.delete(".")
+    images.delete("..")
+    images.map! {|el| "/assets/backgrounds/#{el}"}
+    @image = images.sample
+
     @user = User.new
   end
 
   def create
+    images = Dir.entries("./app/assets/images/backgrounds")
+    images.delete(".")
+    images.delete("..")
+    images.map! {|el| "/assets/backgrounds/#{el}"}
+    @image = images.sample
+    
     @user = User.new(user_params)
-    # @user.avatars << Avatar.first if @user.avatars.empty?
 
     if @user.save
       login_user!(@user)

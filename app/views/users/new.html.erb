@@ -1,21 +1,35 @@
-<div class="container">
-  <div class="user-form">
-    <h1>Sign up</h1>
+<div class="background-image" style="background-image: url(<%= @image %>)">
+  <div class="container">
+    <div class="user-form">
+      <% if flash[:errors] %>
+        <ul class="flash-errors alert alert-danger">
+          <% flash[:errors].try(:each) do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-    <form action="<%= users_url %>" method="POST" role="form">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <h1>Sign up</h1>
 
-      <div class="form-group">
-        <label for="userName">Username</label>
-        <input type="text" name="user[username]" class="form-control" id="userName">
+      <form action="<%= users_url %>" method="POST" role="form">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="form-group">
+          <label for="userName">Username</label>
+          <input type="text" name="user[username]" class="form-control" id="userName">
+        </div>
+
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input type="password" name="user[password]" class="form-control" id="userPassword">
+        </div>
+
+        <button class="btn btn-primary">Sign up</button>
+      </form>
+
+      <div class="main-page-info">
+        PUT SOME INFO HERE
       </div>
-
-      <div class="form-group">
-        <label for="userPassword">Password</label>
-        <input type="password" name="user[password]" class="form-control" id="userPassword">
-      </div>
-
-      <button class="btn btn-primary">Sign up</button>
-    </form>
+    </div>
   </div>
 </div>

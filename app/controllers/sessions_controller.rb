@@ -2,10 +2,20 @@ class SessionsController < ApplicationController
   before_action :ensure_logged_in, only: [:destroy]
 
   def new
-    flash.now[:errors] = []
+    images = Dir.entries("./app/assets/images/backgrounds")
+    images.delete(".")
+    images.delete("..")
+    images.map! {|el| "/assets/backgrounds/#{el}"}
+    @image = images.sample
   end
 
   def create
+    images = Dir.entries("./app/assets/images/backgrounds")
+    images.delete(".")
+    images.delete("..")
+    images.map! {|el| "/assets/backgrounds/#{el}"}
+    @image = images.sample
+    
     user = User.find_by_credentials(
         params[:username], params[:password]
       )

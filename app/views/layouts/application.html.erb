@@ -61,18 +61,6 @@
   </div>
   </nav>
 
-  <div class="container">
-    <div class="user-form">
-      <% if flash[:errors] %>
-        <ul class="flash-errors">
-          <% flash[:errors].try(:each) do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-
   <%= yield %>
 
   <!-- upload modal -->

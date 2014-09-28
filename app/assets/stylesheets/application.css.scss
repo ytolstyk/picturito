@@ -27,6 +27,11 @@
   height: 100%;
 }
 
+.flash-errors {
+  /*font-weight: 100;*/
+  text-shadow: none;
+}
+
 .index-pictures-container {
   width: 870px;
   margin: 0 auto;
@@ -366,6 +371,26 @@ span.vertical {
 /*USER SIGN IN SIGN UP*/
 
 div.user-form {
+  padding-top: 150px;
   width: 500px;
   margin: 0 auto;
+  color: white;
+  text-shadow: 0px 0px 1px #000;
+}
+
+div.background-image {
+  position: absolute;
+  top: -5%;
+  bottom: -5%;
+  left: -5%;
+  right: -5%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  max-height: 1400px;
+}
+
+div.main-page-info {
+  margin-top: 30px;
+  text-align: center;
 }
