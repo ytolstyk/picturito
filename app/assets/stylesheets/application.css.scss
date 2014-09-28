@@ -70,7 +70,7 @@ button.load-more {
 
 .div-picture {
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   position: relative;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -82,11 +82,15 @@ button.load-more {
   color: white;
   text-shadow: 0px 0px 1px #000;
   z-index: 5;
-  opacity: 0;
+  opacity: 0.5;
   transition: all 0.2s ease-in-out;
 }
 
-.div-picture:hover .picture-index {
+/*.div-picture:hover .picture-index {
+  opacity: 0.7;
+}*/
+
+.picture-index:hover {
   opacity: 1;
 }
 
