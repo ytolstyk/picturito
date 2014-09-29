@@ -6,7 +6,11 @@
 
 <div class="pagination">
   <button type="button" class="btn btn-primary previous-page"><</button>
-  <button type="button" class="btn btn-primary current-page"><%= this_page %></button>
+  <form class="go-to-page" role="form">
+    <div class="form-group">
+      <input class="current-page form-control" value="<%= this_page %>">
+    </div>
+  </form>
   <button type="button" class="btn btn-primary next-page">></button>
 </div>
 

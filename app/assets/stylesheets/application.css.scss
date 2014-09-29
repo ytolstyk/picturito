@@ -57,12 +57,19 @@ button.previous-page {
   display: inline-block;
 }
 
-button.current-page {
+button.next-page {
   display: inline-block;
 }
 
-button.next-page {
+.current-page {
   display: inline-block;
+  width: 40px;
+  text-align: center;
+}
+
+.go-to-page {
+  display: inline-block;
+  width: 40px;
 }
 
 /*UPLOAD MODAL*/

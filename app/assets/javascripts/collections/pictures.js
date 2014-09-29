@@ -15,7 +15,7 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
     }
 
     if (payload[0].total_pages) {
-      this.total_pages = payload[0].total_pages + 1;
+      this.total_pages = payload[0].total_pages;
     }
 
     // payload.total_pages = [];
@@ -33,12 +33,12 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
 
   fetchPage: function(num) {
     if (!num) {
-      num = 0
+      num = 1
     }
-    if (num > 0) {
-      num = num % this.total_pages;
-    } else {
-      num = (num % this.total_pages) + this.total_pages
+    if (num > this.total_pages) {
+      num = this.total_pages
+    } else if (num < 1) {
+      num = 1
     }
     this.page = num;
 

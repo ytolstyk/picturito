@@ -19,7 +19,7 @@ PictureShow(view):
     add picture#parse and comment#parse method to get the stuff
 
 (PHASE 4)
-liking pictures
+liking PictureShow
 PictureLike model
 PictureLikesController
 JBUILDER: add number of likes to the picture
@@ -37,4 +37,5 @@ PictureLike model
 1. using keys without memory leaks
   - view gets initialized before old one gets removed
 2. pagination with link bar
-3. utility controller for comments and user pages
+3. fix Load More activities...
+4. utility controller for comments and user pages

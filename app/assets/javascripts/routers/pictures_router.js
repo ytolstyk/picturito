@@ -55,7 +55,6 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this.picturesCollection.fetchPage(page);
     var pictureIndex = new Picturito.Views.PicturesIndex({
       collection: this.picturesCollection,
-      currentPage: page
     });
 
     this._swapView(pictureIndex);
