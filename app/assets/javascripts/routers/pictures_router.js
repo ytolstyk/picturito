@@ -48,7 +48,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   index: function(page) {
     if (!page) {
-      page = 0;
+      page = 1;
     }
 
     this.picturesCollection.page = page;

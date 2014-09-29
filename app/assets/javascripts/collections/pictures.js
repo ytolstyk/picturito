@@ -46,17 +46,19 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
   },
 
   fetchNextPage: function() {
-    this.page = (this.page + 1) % this.total_pages
-    if (this.page === 0) {
-      this.page = 1;
+    if (this.page < this.total_pages) {
+      this.page += 1;
+    } else {
+      this.page = this.total_pages;
     }
     this.fetch({ data: { page: this.page } });
   },
 
   fetchPreviousPage: function() {
-    this.page -= 1;
-    if (this.page < 1) {
-      this.page = this.total_pages - 1
+    if (this.page > 1) {
+      this.page -= 1
+    } else {
+      this.page = 1;
     }
 
     this.fetch({ data: { page: this.page } });
