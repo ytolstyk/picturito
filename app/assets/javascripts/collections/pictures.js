@@ -24,7 +24,7 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
 
   initialize: function() {
     this.page = 1;
-    this.total_pages = 1;
+    this.total_pages = TOTAL_PAGES;
   },
 
   setPage: function(page) {

@@ -48,7 +48,10 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   index: function(page) {
     if (!page) {
+      console.log('no page loading 1')
       page = 1;
+    } else {
+      console.log('loading page ' + page);
     }
 
     this.picturesCollection.page = page;
@@ -75,5 +78,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$main.html(view.render().$el);
+    //call the afterSwap callback only if view implements it
+    view.afterSwap && view.afterSwap();
   }
 });

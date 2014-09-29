@@ -36,6 +36,10 @@ PictureLike model
 ------------------------------
 1. using keys without memory leaks
   - view gets initialized before old one gets removed
+  fixed
 2. pagination with link bar
+  
 3. fix Load More activities...
+  just do last 20
 4. utility controller for comments and user pages
+  use nested route

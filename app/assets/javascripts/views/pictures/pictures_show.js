@@ -15,9 +15,6 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     this.model.comments().each(function(comment) {
       view.addCommentBefore(comment);
     });
-
-    // unsubscribe from this event upon remove
-    // $(document).on("keydown", this.keyHandler.bind(view));
   },
 
   events: {
@@ -27,26 +24,25 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   keyHandler: function(key) {
-    if (this.splash === true) {
       switch(key.which) {
-      case 27: // escape
-        this.render();
-        break;
-      default:
-        return;
-      }
-    } else {
-      switch(key.which) {
+        case 27: // escape
+          if(this.splash){
+            this.render();
+          }
+          break;
         case 37: // left
-          $(".previous-picture").trigger("click");
+          if(!this.splash){
+            $(".previous-picture").trigger("click");
+          }
           break;
         case 39: // right
-          $(".next-picture").trigger("click");
+          if(!this.splash){
+            $(".next-picture").trigger("click");
+          }
           break;
         default:
           return;
       }
-    }
   },
 
   addCommentBefore: function(comment) {
@@ -100,7 +96,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
   renderSplash: function() {
     var view = this;
-    $(document).on("keydown", this.keyHandler.bind(view));
+    // $(document).on("keydown", this.keyHandler.bind(view));
     var renderContent = this.splashTemplate({
       picture: this.model
     });
@@ -117,8 +113,8 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
   render: function() {
     var view = this;
-    $(document).off("keydown");
-    $(document).on("keydown", this.keyHandler.bind(view));
+    // $(document).off("keydown");
+    // $(document).on("keydown", this.keyHandler.bind(view));
     var renderContent = this.template({
       picture: this.model
     });
@@ -127,6 +123,11 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
     this.$el.html(renderContent);
     this.attachSubviews();
     return this;
+  },
+
+  afterSwap: function(){
+    // unsubscribe from this event upon remove
+    $(document).on("keydown", this.keyHandler.bind(this));
   }
 
 });

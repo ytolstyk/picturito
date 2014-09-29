@@ -3,7 +3,7 @@ module Api
     wrap_parameters :picture, include: [:title, :description, :img_url]
 
     def index
-      @pictures = Picture.all.order(:id).page params[:page]
+      @pictures = Picture.includes(:user, :liked_users, :picture_likes).all.order(:id).page params[:page]
     end
 
     def show
