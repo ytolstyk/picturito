@@ -7,6 +7,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
     this.activitiesCollection = Picturito.activities;
     this.picturesCollection = Picturito.pictures;
+    this.profileCollection = Picturito.userPictures;
 
     if (this.$navbarActivities.length !== 0) {
       this.renderActivities();
@@ -18,8 +19,16 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     "page/:page": "index",
     "picture/new": "newPicture",
     "picture/:id": "show",
-    "picture/:id/edit": "edit",
     "profile": "profile"
+  },
+
+  profile: function() {
+    this.profileCollection.fetch();
+    var profile = new Picturito.Views.Profile({
+      collection: this.profileCollection
+    });
+
+    this._swapView(profile);
   },
 
   renderActivities: function() {
@@ -35,10 +44,6 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this._currentActivities && this._currentActivities.remove();
     this._currentActivities = view;
     this.$navbarActivities.html(view.render().$el);
-  },
-
-  profile: function() {
-    // make this shit!
   },
 
   index: function(page) {

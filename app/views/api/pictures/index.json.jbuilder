@@ -19,6 +19,8 @@ json.array!(@pictures) do |picture|
   #   # json.avatar_small comment.user.avatars.first.image.url(:small)
   # end
   json.current_user current_user.id
+  json.avatar_big current_user.avatars.last.image.url(:big)
+  json.avatar_small current_user.avatars.last.image.url(:small)
   json.total_pages Picture.total_pages
 end
 
