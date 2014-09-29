@@ -20,10 +20,11 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   routes: {
     "": "index",
+    "page/:page": "index",
     "picture/new": "newPicture",
     "picture/:id": "show",
     "picture/:id/edit": "edit",
-    "profile": "profile",
+    "profile": "profile"
   },
 
   renderActivities: function() {
@@ -45,21 +46,19 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     // make this shit!
   },
 
-  index: function() {
-    this.picturesCollection.fetch();
+  index: function(page) {
+    if (!page) {
+      page = 0;
+    }
+
+    this.picturesCollection.page = page;
+    this.picturesCollection.fetchPage(page);
     var pictureIndex = new Picturito.Views.PicturesIndex({
-      collection: this.picturesCollection
+      collection: this.picturesCollection,
+      currentPage: page
     });
 
     this._swapView(pictureIndex);
-  },
-
-  newPicture: function() {
-
-  },
-
-  edit: function() {
-
   },
 
   show: function(id) {

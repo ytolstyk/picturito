@@ -57,6 +57,10 @@ button.previous-page {
   display: inline-block;
 }
 
+button.current-page {
+  display: inline-block;
+}
+
 button.next-page {
   display: inline-block;
 }
@@ -214,7 +218,7 @@ div.inline-block {
 
 .picture-info {
   position: absolute;
-  max-width: 125px;
+  max-width: 200px;
   left: 8px;
   bottom: 10px;
   color: white;
@@ -225,7 +229,7 @@ div.inline-block {
 .picture-title {
   font-size: 20px;
   font-weight: 300;
-  max-width: 125px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -257,6 +261,10 @@ div.inline-block {
   display: inline-block;
   width: 480px;
   padding-right: 15px;
+}
+
+.picture-description {
+  width: 500px;
 }
 
 .div-new-comment {
