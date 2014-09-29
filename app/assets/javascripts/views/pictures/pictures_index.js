@@ -9,13 +9,20 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
   },
 
   events: {
+    "click button.next-page": "nextPage",
+    "click button.previous-page": "previousPage",
     "click button.refresh": "refresh",
     "click button.load-more": "loadMore"
   },
 
-  loadMore: function(event) {
+  nextPage: function(event) {
     event.preventDefault();
     this.collection.fetchNextPage();
+  },
+
+  previousPage: function(event) {
+    event.preventDefault();
+    this.collection.fetchPreviousPage();
   },
 
   addPicture: function(picture) {

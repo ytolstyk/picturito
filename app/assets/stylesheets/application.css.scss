@@ -47,10 +47,18 @@ ul.ul-pictures {
 
 }
 
-button.load-more {
+div.pagination {
+  text-align: center;
   margin: 0 auto;
-  width: 830px;
-  display: block;
+  width: 1000px;
+}
+
+button.previous-page {
+  display: inline-block;
+}
+
+button.next-page {
+  display: inline-block;
 }
 
 /*UPLOAD MODAL*/

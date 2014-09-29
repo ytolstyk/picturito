@@ -16,8 +16,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
       view.addCommentBefore(comment);
     });
 
-    // silly?
-    //unsubscribe from this event upon remove
+    // unsubscribe from this event upon remove
     // $(document).on("keydown", this.keyHandler.bind(view));
   },
 
@@ -28,8 +27,6 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   keyHandler: function(key) {
-    console.log("hitting a key");
-
     if (this.splash === true) {
       switch(key.which) {
       case 27: // escape

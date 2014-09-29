@@ -16,9 +16,11 @@
 #
 
 class Picture < ActiveRecord::Base
+  PAGINATE_PER = 15
+
   validates :img_url, presence: true
 
-  paginates_per 15
+  paginates_per PAGINATE_PER
 
   belongs_to :user
 
@@ -40,6 +42,10 @@ class Picture < ActiveRecord::Base
   }
 
   validates_attachment_content_type :img_url, content_type: /\Aimage\/.*\Z/
+
+  def self.total_pages
+    (Picture.count + PAGINATE_PER - 1) / PAGINATE_PER
+  end
 
   def like_count
     return 0 if self.liked_users.empty?

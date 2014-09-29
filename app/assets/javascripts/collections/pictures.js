@@ -8,22 +8,44 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
   //   // use -picture.get("views"); to sort by popularity
   // },
 
-  // parse: function(payload) {
-    // if (payload.total_pages) {
-    //   this.total_pages = data.total_pages;
-    // }
+  parse: function(payload) {
+    if (payload[0].total_pages) {
+      this.total_pages = payload[0].total_pages + 1;
+    }
 
     // payload.total_pages = [];
-    // return payload
-  // },
+    return payload
+  },
 
   initialize: function() {
     this.page = 1;
   },
 
+  fetchPage: function(num) {
+    if (num > 0) {
+      num = num % this.total_pages;
+    } else {
+      num = (num % this.total_pages) + this.total_pages
+    }
+
+    this.fetch({ data: { page: num } });
+  },
+
   fetchNextPage: function() {
-    this.page += 1;
-    this.fetch({ remove: false, data: { page: this.page } });
+    this.page = (this.page + 1) % this.total_pages
+    if (this.page === 0) {
+      this.page = 1;
+    }
+    this.fetch({ data: { page: this.page } });
+  },
+
+  fetchPreviousPage: function() {
+    this.page -= 1;
+    if (this.page < 1) {
+      this.page = this.total_pages - 1
+    }
+
+    this.fetch({ data: { page: this.page } });
   },
 
   getOrFetch: function(id) {
