@@ -1,7 +1,7 @@
 module Api
   class ActivitiesController < ApiController
     def index
-      @activities = current_user.own_activities.page 1
+      @activities = current_user.own_activities.includes(:user, :picture).page 1
     end
 
     def destroy

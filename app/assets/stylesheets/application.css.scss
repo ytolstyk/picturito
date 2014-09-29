@@ -126,9 +126,45 @@ div.pagination {
   transition: all 0.2s ease-in-out;
 }
 
-/*.div-picture:hover .picture-index {
-  opacity: 0.7;
-}*/
+.show-picture-like {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  text-shadow: 0 0 2px #000;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.show-heart {
+  text-align: center;
+}
+
+.show-likes-count {
+  opacity: 0;
+  font-size: 0;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.2s ease-in-out;
+}
+
+.span-show-likes-count {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.show-picture-like:hover {
+  font-size: 0;
+}
+
+.show-picture-like:hover .show-likes-count {
+  font-size: 25px;
+  opacity: 1;
+}
 
 .picture-index:hover {
   opacity: 1;
@@ -152,6 +188,7 @@ div.pagination {
 }
 
 .title {
+  position: relative;
   display: inline-block;
   width: 1000px;
   overflow: hidden;
@@ -169,6 +206,7 @@ div.pagination {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 900px;
 }
 
 .li-picture {
@@ -339,8 +377,6 @@ div.inline-block {
 div.picture-like {
   opacity: 0;
   text-shadow: 0px 0px 2px #000;
-  /*background-color: rgb(3, 3, 3);
-  background-color: rgba(3, 3, 3, 0.2);*/
   position: absolute;
   top: 5px;
   right: 5px;

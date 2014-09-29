@@ -4,11 +4,15 @@ module Api
 
     def index
       # include url pagination logic here
-      @pictures = Picture.includes(:user, :liked_users, :picture_likes).all.order(:id).page params[:page]
+      if params[:user_id]
+        @pictures = current_user.pictures.includes(:user, :liked_users, :picture_likes).order(:id).page params[:page]
+      else
+        @pictures = Picture.includes(:user, :liked_users, :picture_likes).all.order(:id).page params[:page]
+      end
     end
 
     def show
-      @picture = Picture.find(params[:id])
+      @picture = Picture.includes(:user, :liked_users, :picture_likes, :comments).find(params[:id])
       @picture.update(views: @picture.views += 1)
 
       render :show
