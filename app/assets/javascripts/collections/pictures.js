@@ -3,11 +3,6 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
 
   url: "api/pictures",
 
-  // comparator: function(picture) {
-  //   return picture.get("id");
-  //   // use -picture.get("views"); to sort by popularity
-  // },
-
   parse: function(payload) {
     if (payload === []) {
       total_pages = 1;
@@ -18,7 +13,6 @@ Picturito.Collections.Pictures = Backbone.Collection.extend({
       this.total_pages = payload[0].total_pages;
     }
 
-    // payload.total_pages = [];
     return payload
   },
 

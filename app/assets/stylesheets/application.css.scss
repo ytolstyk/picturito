@@ -53,12 +53,33 @@ div.pagination {
   width: 1000px;
 }
 
-button.previous-page {
+.pagination-link {
   display: inline-block;
+  width: 40px;
+  height: 30px;
+  background-color: rgb(150, 150, 150);
+  background-color: rgba(150, 150, 150, 0.3);
+  color: white;
+  font-size: 20px;
+  text-shadow: 0 0 1px #000;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
 }
 
-button.next-page {
-  display: inline-block;
+.pagination-link:hover {
+  background-color: rgba(150, 150, 150, 1);
+}
+
+.total-pages-container {
+  position: relative;
+}
+
+.total-pages {
+  margin: 0 auto;
+  width: 100px;
+  text-align: center;
+  color: grey;
+  /*text-shadow: 0 0 1px #000;*/
 }
 
 .current-page {

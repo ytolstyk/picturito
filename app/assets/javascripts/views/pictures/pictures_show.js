@@ -96,7 +96,6 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
   renderSplash: function() {
     var view = this;
-    // $(document).on("keydown", this.keyHandler.bind(view));
     var renderContent = this.splashTemplate({
       picture: this.model
     });
@@ -113,8 +112,6 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
 
   render: function() {
     var view = this;
-    // $(document).off("keydown");
-    // $(document).on("keydown", this.keyHandler.bind(view));
     var renderContent = this.template({
       picture: this.model
     });

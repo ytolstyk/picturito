@@ -11,11 +11,6 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     if (this.$navbarActivities.length !== 0) {
       this.renderActivities();
     }
-    
-    // var router = this;
-    // this.$activitiesBtn.on("click", router.renderActivities.bind(router));
-    // set up modal(options.$navBarBtn) view
-    // this.$navbarActivities.on('show.bs.dropdown', 'li.dropdown', router.renderActivities.bind(router));
   },
 
   routes: {
@@ -48,10 +43,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   index: function(page) {
     if (!page) {
-      console.log('no page loading 1')
       page = 1;
-    } else {
-      console.log('loading page ' + page);
     }
 
     this.picturesCollection.page = page;

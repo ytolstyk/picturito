@@ -38,7 +38,8 @@ PictureLike model
   - view gets initialized before old one gets removed
   fixed
 2. pagination with link bar
-  
+  fixed
+  move the logic to the controller (if possible)
 3. fix Load More activities...
   just do last 20
 4. utility controller for comments and user pages
