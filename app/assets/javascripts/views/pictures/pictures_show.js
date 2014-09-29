@@ -4,7 +4,7 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   splashTemplate: JST['pictures/show_splash'],
 
   initialize: function() {
-    this.listenTo(this.model, "sync reset", this.render);
+    this.listenTo(this.model, "sync reset like", this.render);
 
     this.listenTo(this.model.comments(), "add", this.addComment);
     this.listenTo(this.model.comments(), "remove", this.removeComment);
@@ -20,7 +20,8 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   events: {
     "click .click-picture": "renderSplash",
     "click div.splash-container": "render",
-    "submit form.new-comment": "createComment"
+    "submit form.new-comment": "createComment",
+    "click .show-picture-like": "handleLike"
   },
 
   keyHandler: function(key) {
@@ -43,6 +44,47 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
         default:
           return;
       }
+  },
+
+  handleLike: function(event) {
+    event.preventDefault();
+    if (this.model.escape("user_liked") === "true") {
+      this.dislike();
+    } else {
+      this.like();
+    }
+  },
+
+  dislike: function() {
+    var that = this;
+    var likes = this.model.get("likes") - 1;
+    var like = new Picturito.Models.PictureLike({
+      id: this.model.id,
+    });
+
+    like.destroy({
+      success: function() {
+        that.model.set("user_liked", "false");
+        that.model.set("likes", likes)
+        that.model.trigger('like');
+      }
+    });
+  },
+
+  like: function() {
+    var that = this;
+    var likes = this.model.get("likes") + 1;
+    var newLike = new Picturito.Models.PictureLike({
+      picture_id: this.model.id
+    });
+
+    newLike.save({}, {
+      success: function() {
+        that.model.set("user_liked", "true");
+        that.model.set("likes", likes);
+        that.model.trigger('like');
+      }
+    });
   },
 
   addCommentBefore: function(comment) {
