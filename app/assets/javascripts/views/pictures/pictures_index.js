@@ -5,6 +5,23 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync add remove like", this.render);
+
+    this.thisPage = parseInt(this.collection.page);
+    this.totalPages = parseInt(this.collection.total_pages);
+    this.nextPage = this.thisPage + 1;
+    this.prevPage = this.thisPage - 1;
+
+    if (this.nextPage > this.totalPages) {
+      this.nextPage = "#/page/" + this.totalPages;
+    } else {
+      this.nextPage = "#/page/" + this.nextPage;
+    }
+
+    if (this.prevPage < 2) {
+      this.prevPage = "#";
+    } else {
+      this.prevPage = "#/page/" + this.prevPage;
+    }
   },
 
   events: {
@@ -32,18 +49,6 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var thisPage = this.collection.page;
-    var nextPage = thisPage + 1;
-    var totalPages = this.collection.total_pages;
-    if (nextPage > totalPages) {
-      nextPage = totalPages;
-    }
-
-    var prevPage = thisPage - 1;
-    if (prevPage < 1) {
-      prevPage = 1;
-    }
-
     this._subviews = {};
 
     var view = this;
@@ -52,10 +57,10 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
     });
 
     var renderContent = this.template({
-      this_page: thisPage,
-      next_page: nextPage,
-      previous_page: prevPage,
-      total_pages: totalPages
+      this_page: this.thisPage,
+      next_page: this.nextPage,
+      previous_page: this.prevPage,
+      total_pages: this.totalPages
     });
 
     this.$el.html(renderContent);
