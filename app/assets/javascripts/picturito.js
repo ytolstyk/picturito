@@ -77,7 +77,8 @@ $(function () {
 
     if (uploadType === "avatar") {
       var picture = new Picturito.Models.Avatar({
-        title: title
+        title: title,
+        description: description
       });
       var column = "image";
     } else {

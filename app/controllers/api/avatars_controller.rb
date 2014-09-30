@@ -39,7 +39,7 @@ module Api
     private
 
     def avatar_params
-      params.require(:avatar).permit(:image, :title)
+      params.require(:avatar).permit(:image, :title, :description)
     end
   end
 end

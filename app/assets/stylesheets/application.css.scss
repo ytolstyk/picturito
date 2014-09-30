@@ -84,13 +84,13 @@ div.pagination {
 
 .current-page {
   display: inline-block;
-  width: 40px;
+  width: 50px;
   text-align: center;
 }
 
 .go-to-page {
   display: inline-block;
-  width: 40px;
+  width: 50px;
 }
 
 /*UPLOAD MODAL*/
@@ -531,7 +531,7 @@ div.main-page-info {
 .profile-username {
   position: absolute;
   top: 5px;
-  left: 270px;
+  left: 280px;
 }
 
 .profile-load-more {
@@ -543,6 +543,14 @@ div.main-page-info {
 .load-more {
   width: 500px;
   margin-bottom: 10px;
+}
+
+.ul-profile-pictures {
+  width: 950px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid grey;
 }
 
 /*PROFILE PICTURE*/
@@ -571,7 +579,7 @@ div.main-page-info {
   position: absolute;
   left: 270px;
   top: 5px;
-  max-width: 600px;
+  max-width: 550px;
   cursor: pointer;
 }
 
@@ -581,5 +589,29 @@ div.main-page-info {
   right: 30px;
   top: 20px;
   font-size: 30px;
+  cursor: pointer;
+}
+
+.edit-helper-text {
+  position: absolute;
+  font-size: 10px;
+  color: grey;
+  top: 5px;
+  width: 300px;
+}
+
+/*PROFILE PICTURE EDIT*/
+
+.profile-picture-edit {
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+.profile-picture-edit-wrapper {
+  display: inline-block;
+  position: absolute;
+  left: 270px;
+  top: 5px;
+  width: 500px;
   cursor: pointer;
 }

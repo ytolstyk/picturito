@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927011544) do
+ActiveRecord::Schema.define(version: 20140930004947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140927011544) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description",        default: ""
   end
 
   add_index "avatars", ["user_id"], name: "index_avatars_on_user_id", using: :btree
