@@ -25,6 +25,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   favorites: function() {
+    this.favoritesCollection.page = 1;
     this.favoritesCollection.fetch();
     var favorites = new Picturito.Views.Favorites({
       collection: this.favoritesCollection

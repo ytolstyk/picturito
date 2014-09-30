@@ -52,7 +52,7 @@ module Api
 
     def favorites
       if current_user
-        @pictures = current_user.liked_pictures.includes(:user).order(:id).page params[:page]
+        @pictures = current_user.liked_pictures.includes(:user, :picture_likes).order(:id).page params[:page]
       else
         render json: []
       end

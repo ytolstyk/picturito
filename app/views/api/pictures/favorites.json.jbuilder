@@ -8,6 +8,6 @@ json.array!(@pictures) do |picture|
   json.username picture.user.username
   json.likes picture.like_count
   json.user_liked picture.user_liked?(current_user)
-  json.date_liked 
+  json.date_liked picture.user_liked_date(current_user)
 end
 
