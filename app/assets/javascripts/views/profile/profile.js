@@ -12,7 +12,7 @@ Picturito.Views.Profile = Backbone.CompositeView.extend({
       model: picture
     });
 
-    this.addSubview(".ul-profile-picture", profilePicture);
+    this.addSubview(".ul-profile-pictures", profilePicture);
   },
 
   events: {
@@ -37,11 +37,11 @@ Picturito.Views.Profile = Backbone.CompositeView.extend({
     this.collection.each(function(picture) {
       view.addPicture(picture);
     });
-
+    
     var renderContent = this.template({
-      
+      collection: this.collection
     });
-
+    
     this.$el.html(renderContent);
     this.attachSubviews();
     return this;

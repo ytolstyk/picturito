@@ -29,8 +29,8 @@ class ApplicationController < ActionController::Base
     images.delete(".")
     images.delete("..")
     images.delete(".DS_Store")
-    images.map! {|el| "/assets/backgrounds/#{el}"}
-    images.sample
+    image = images.sample
+    "/assets/backgrounds/#{image}"
   end
 
   def logout_user!(user)

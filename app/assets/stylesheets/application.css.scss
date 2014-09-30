@@ -435,15 +435,6 @@ div.likes-count {
   padding-right: 30px;
 }
 
-.a-activity {
-
-}
-
-.load-more-activities {
-  text-align: center;
-  cursor: pointer;
-}
-
 span.vertical {
   display: inline-block;
   vertical-align: middle;
@@ -520,4 +511,64 @@ div.main-page-info {
   height: auto;
   margin-top: -10px;
   margin-bottom: -10px;
+}
+
+/*PROFILE */
+
+.profile-user-info {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+  min-height: 260px;
+}
+
+.profile-avatar {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.profile-username {
+  position: absolute;
+  top: 5px;
+  left: 270px;
+}
+
+/*PROFILE PICTURE*/
+
+.li-profile-picture {
+  position: relative;
+  margin: 0 auto;
+  width: 900;
+  min-height: 260px;
+  transition: all 0.2s ease-in-out;
+}
+
+.li-profile-picture:hover {
+  opacity: 0.7;
+}
+
+.profile-picture-container {
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.profile-picture-info {
+  display: inline-block;
+  position: absolute;
+  left: 270px;
+  top: 5px;
+  max-width: 600px;
+  cursor: pointer;
+}
+
+.delete-picture {
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 30px;
+  cursor: pointer;
 }

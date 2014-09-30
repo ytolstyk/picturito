@@ -1,5 +1,6 @@
 Picturito.Views.ActivityShow = Backbone.View.extend({
   tagName: "li",
+  
   className: "li-activity",
 
   template: JST["activities/show"],

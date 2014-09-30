@@ -33,7 +33,19 @@ Picturito.Views.PicturesIndex = Backbone.CompositeView.extend({
   goToPage: function(event) {
     event.preventDefault();
     var page = $(event.currentTarget).find(".current-page").val();
-    this.collection.fetchPage(page);
+
+    if (page > this.totalPages) {
+      page = this.totalPages;
+    } else if (page < 1) {
+      page = 1;
+    }
+
+    if (page === 1) {
+      Backbone.history.navigate("#/page/1");
+    } else {
+      Backbone.history.navigate("#/page/" + page);
+    }
+    // this.collection.fetchPage(page);
   },
 
   addPicture: function(picture) {
