@@ -8,6 +8,10 @@ Picturito.Collections.UserPictures = Backbone.Collection.extend({
   },
 
   parse: function(payload) {
+    if (payload.length === 0) {
+      return payload;
+    }
+    
     if (payload[0].username) {
       this.username = payload[0].username;
     } else {
