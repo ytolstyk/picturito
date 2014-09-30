@@ -35,9 +35,5 @@ PictureLike model
 
 ------------------------------
 
-2. pagination with link bar
-  fixed
-  move the logic to the controller (if possible)
-
-4. utility controller for comments and user pages
-  use nested route
+1  move the pagination logic to the controller (if possible)
+2  add flash (view source)

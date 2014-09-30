@@ -17,7 +17,6 @@ window.Picturito = {
 };
 
 $(function () {
-  Picturito.initialize();
 
   function _toggleFormEnabled($form, disable) {
     $form.find(".upload-picture-file").prop("disabled", disable);
@@ -123,7 +122,7 @@ $(function () {
     event.preventDefault();
     $("#userName").val("guest");
     $("#userPassword").val("something");
-    $(".sign-in-button").trigger("click");
+    setTimeout(function(){$(".sign-in-button").trigger("click")}, 10);
   });
 
 });

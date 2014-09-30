@@ -5,6 +5,8 @@
     <script>TOTAL_PAGES = <%= Picture.total_pages %> </script>
     <% if current_user %>
       <script>CURRENT_USER = <%= current_user.id %></script>
+    <% else %>
+      <script>CURRENT_USER = 0</script>
     <% end %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application'%>
