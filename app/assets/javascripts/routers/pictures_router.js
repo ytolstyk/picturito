@@ -8,6 +8,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this.activitiesCollection = Picturito.activities;
     this.picturesCollection = Picturito.pictures;
     this.profileCollection = Picturito.userPictures;
+    this.favoritesCollection = Picturito.favorites;
 
     if (this.$navbarActivities.length !== 0) {
       this.renderActivities();
@@ -16,10 +17,20 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   routes: {
     "": "index",
+    "favorites": "favorites",
     "page/:page": "index",
     "picture/new": "newPicture",
     "picture/:id": "show",
     "profile": "profile"
+  },
+
+  favorites: function() {
+    this.favoritesCollection.fetch();
+    var favorites = new Picturito.Views.Favorites({
+      collection: this.favoritesCollection
+    });
+
+    this._swapView(favorites);
   },
 
   profile: function() {

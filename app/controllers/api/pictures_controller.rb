@@ -50,6 +50,14 @@ module Api
       render json: {}
     end
 
+    def favorites
+      if current_user
+        @pictures = current_user.liked_pictures.includes(:user).order(:id).page params[:page]
+      else
+        render json: []
+      end
+    end
+
     private
 
     def picture_params

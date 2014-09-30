@@ -15,4 +15,6 @@ class PictureLike < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :picture
+
+  default_scope -> { order(:id => :desc) }
 end

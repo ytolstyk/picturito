@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     resources :users do
       resources :pictures, only: [:index, :update]
     end
+
+    get 'favorites', to: "pictures#favorites"
   end
 end
