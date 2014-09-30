@@ -47,6 +47,12 @@ class Rating < ActiveRecord::Base
     self.save
   end
 
+  def remove_like
+    score = self.score
+    score = (score - 10) / 0.9
+    self.update(score: score)
+  end
+
   private
 
   def set_last_reduction

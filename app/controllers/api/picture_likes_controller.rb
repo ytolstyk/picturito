@@ -29,6 +29,7 @@ module Api
     def destroy
       @like = current_user.picture_likes.find_by_picture_id(params[:id])
       @like.destroy
+      @like.picture.rating.remove_like
 
       # destroy activity
       @like.user.activities.where(picture_id: @like.picture.id).each do |act|

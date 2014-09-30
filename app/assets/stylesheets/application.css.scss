@@ -282,10 +282,12 @@ div.inline-block {
 .picture-views {
   position: absolute;
   right: 8px;
-  bottom: 12px;
+  bottom: 5px;
   text-shadow: 0px 0px 1px #000;
   color: white;
   opacity: 0;
+  font-size: 40px;
+  font-weight: 200;
   transition: all 0.2s ease-in-out;
 }
 
@@ -302,7 +304,7 @@ div.inline-block {
 .picture-title {
   font-size: 20px;
   font-weight: 300;
-  max-width: 200px;
+  max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
