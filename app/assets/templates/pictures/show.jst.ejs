@@ -5,6 +5,15 @@
   <h2 class="h2-title"><%= picture.escape("title") %></h2>
   <span><%= picture.escape("username") %></span>
 
+  <div class="score-wrapper">
+    <div class="show-picture-score">
+      Score: <%= picture.escape("score") %>
+    </div>
+    <div class="show-picture-highest">
+      Highest: <%= picture.escape("highest_score") %>
+    </div>
+  </div>
+
   <div class="show-picture-like">
     <% var color = picture.escape("user_liked") === "true" ? "firebrick" : "white" %>
     

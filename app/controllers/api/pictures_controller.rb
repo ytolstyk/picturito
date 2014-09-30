@@ -60,7 +60,7 @@ module Api
     end
 
     def popular
-      
+      @pictures = Picture.all.includes(:user, :picture_likes, :rating).order("ratings.score desc").page params[:page]
     end
 
     private

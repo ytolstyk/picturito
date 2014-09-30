@@ -8,6 +8,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  last_reduction :datetime
+#  highest_score  :float            default(0.0)
 #
 
 class Rating < ActiveRecord::Base
@@ -49,7 +50,7 @@ class Rating < ActiveRecord::Base
 
   def remove_like
     score = self.score
-    score = (score - 10) / 0.9
+    score = ((score - 10) / 0.9).round(1)
     self.update(score: score)
   end
 

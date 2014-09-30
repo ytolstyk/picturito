@@ -178,10 +178,6 @@ div.pagination {
   right: 5px;
 }
 
-.click-picture {
-  
-}
-
 .picture-avatar {
   float: left;
   margin-right: 5px;
@@ -206,7 +202,44 @@ div.pagination {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 870px;
+  width: 800px;
+}
+
+.show-picture-score {
+  position: absolute;
+  font-size: 25px;
+  font-weight: 200;
+  right: 60px;
+  top: 10px;
+  color: white;
+  text-shadow: 0 0 2px #000;
+  transition: all 0.2s ease-in-out;
+}
+
+.score-wrapper {
+  transition: all 0.2s ease-in-out;
+}
+
+.score-wrapper:hover .show-picture-score {
+  opacity: 0;
+  top: -30px;
+}
+
+.score-wrapper:hover .show-picture-highest {
+  opacity: 1;
+  top: 10px;
+}
+
+.show-picture-highest {
+  opacity: 0;
+  position: absolute;
+  font-size: 25px;
+  font-weight: 200;
+  right: 60px;
+  top: 35px;
+  color: white;
+  text-shadow: 0 0 2px #000;
+  transition: all 0.2s ease-in-out;
 }
 
 .li-picture {

@@ -9,6 +9,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     this.picturesCollection = Picturito.pictures;
     this.profileCollection = Picturito.userPictures;
     this.favoritesCollection = Picturito.favorites;
+    this.popularCollection = Picturito.popular;
 
     if (this.$navbarActivities.length !== 0) {
       this.renderActivities();
@@ -26,7 +27,13 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   popular: function() {
-    
+    this.popularCollection.page = 1;
+    this.popularCollection.fetch();
+    var popular = new Picturito.Views.Favorites({
+      collection: this.popularCollection
+    });
+
+    this._swapView(popular);
   },
 
   favorites: function() {

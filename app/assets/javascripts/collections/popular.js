@@ -1,7 +1,7 @@
-Picturito.Collections.Favorites = Backbone.Collection.extend({
+Picturito.Collections.Popular = Backbone.Collection.extend({
   model: Picturito.Models.Picture,
 
-  url: "api/favorites",
+  url: "api/popular",
 
   initialize: function() {
     this.page = 1;
@@ -32,4 +32,4 @@ Picturito.Collections.Favorites = Backbone.Collection.extend({
 
 });
 
-Picturito.favorites = new Picturito.Collections.Favorites();
+Picturito.popular = new Picturito.Collections.Popular();

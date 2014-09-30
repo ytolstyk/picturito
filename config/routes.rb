@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :pictures, only: [:index, :update]
     end
 
-    get 'favorites', to: "pictures#favorites"
+    get "favorites", to: "pictures#favorites"
+    get "popular", to: "pictures#popular"
   end
 end
