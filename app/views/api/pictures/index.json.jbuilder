@@ -18,9 +18,16 @@ json.array!(@pictures) do |picture|
   #   # json.avatar_big comment.user.avatars.first.image.url(:big)
   #   # json.avatar_small comment.user.avatars.first.image.url(:small)
   # end
-  json.current_user current_user.id
-  json.avatar_big current_user.avatars.last.image.url(:big)
-  json.avatar_small current_user.avatars.last.image.url(:small)
-  json.total_pages Picture.total_pages
+  if current_user
+    json.current_user current_user.id
+    if current_user.avatars.empty?
+      json.avatar_small "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
+      json.avatar_big "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_big.jpeg"
+    else
+      json.avatar_small current_user.avatars.last.image.url(:small)
+      json.avatar_big current_user.avatars.last.image.url(:big)
+    end
+    json.total_pages Picture.total_pages
+  end
 end
 
