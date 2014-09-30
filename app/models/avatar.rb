@@ -11,6 +11,7 @@
 #  title              :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  description        :text             default("")
 #
 
 class Avatar < ActiveRecord::Base

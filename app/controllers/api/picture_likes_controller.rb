@@ -19,6 +19,7 @@ module Api
             )
         end
 
+        @like.picture.rating.like_action
         render json: @like
       else
         render json: @like.errors.full_messages

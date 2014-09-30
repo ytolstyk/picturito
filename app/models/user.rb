@@ -18,23 +18,25 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :session_token, uniqueness: true
 
-  has_many :avatars
+  has_many :avatars, dependent: :destroy
 
   has_many :pictures
 
-  has_many :activities
+  has_many :activities, dependent: :destroy
 
   has_many(
     :own_activities,
     class_name: "Activity",
     foreign_key: :owner_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(:picture_likes,
     class_name: "PictureLike",
     primary_key: :id,
     foreign_key: :user_id)
+  
   has_many(:liked_pictures,
     through: :picture_likes,
     source: :picture)

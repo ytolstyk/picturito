@@ -5,15 +5,16 @@ module Api
     def index
       # include url pagination logic here
       if params[:user_id]
-        @pictures = current_user.pictures.includes(:user, :liked_users, :picture_likes).order(:id).page params[:page]
+        @pictures = current_user.pictures.includes(:user, :liked_users, :picture_likes, :rating).order(:id).page params[:page]
       else
-        @pictures = Picture.includes(:user, :liked_users, :picture_likes).all.order(:id).page params[:page]
+        @pictures = Picture.includes(:user, :liked_users, :picture_likes, :rating).all.order(:id).page params[:page]
       end
     end
 
     def show
-      @picture = Picture.includes(:user, :liked_users, :picture_likes, :comments).find(params[:id])
+      @picture = Picture.includes(:user, :liked_users, :picture_likes, :comments, :rating).find(params[:id])
       @picture.update(views: @picture.views += 1)
+      @picture.rating.show_action
 
       render :show
     end
@@ -52,10 +53,14 @@ module Api
 
     def favorites
       if current_user
-        @pictures = current_user.liked_pictures.includes(:user, :picture_likes).order(:id).page params[:page]
+        @pictures = current_user.liked_pictures.includes(:user, :picture_likes, :rating).order(:id).page params[:page]
       else
         render json: []
       end
+    end
+
+    def popular
+      
     end
 
     private

@@ -26,30 +26,38 @@ class Picture < ActiveRecord::Base
 
   has_many :users
 
-  has_many :activities
+  has_many :activities, dependent: :destroy
 
   has_many(:picture_likes,
     class_name: "PictureLike",
     primary_key: :id,
-    foreign_key: :picture_id)  
-  has_many(:liked_users, through: :picture_likes, source: :user)
+    foreign_key: :picture_id,
+    dependent: :destroy)
 
-  has_many :comments
+  has_many(:liked_users,
+    through: :picture_likes,
+    source: :user,
+    dependent: :destroy)
+
+  has_many :comments, dependent: :destroy
 
   has_attached_file :img_url, styles: {
     big: "1000>",
     small: "250x250#"
   }
 
+  has_one :rating, dependent: :destroy
+
   validates_attachment_content_type :img_url, content_type: /\Aimage\/.*\Z/
+
+  after_create :create_rating
 
   def self.total_pages
     (Picture.count + PAGINATE_PER - 1) / PAGINATE_PER
   end
 
   def like_count
-    return 0 if self.liked_users.empty?
-    self.liked_users.count
+    self.picture_likes.count
   end
 
   def user_liked?(user)
@@ -72,6 +80,10 @@ class Picture < ActiveRecord::Base
     @index ||= get_self_index
     index = (@index - 1) % @total
     @pictures[index]
+  end
+
+  def create_rating
+    self.rating = Rating.new
   end
 
   private

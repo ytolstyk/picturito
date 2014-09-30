@@ -17,11 +17,16 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "favorites": "favorites",
     "page/:page": "index",
     "picture/new": "newPicture",
     "picture/:id": "show",
-    "profile": "profile"
+    "profile": "profile",
+    "favorites": "favorites",
+    "popular": "popular"
+  },
+
+  popular: function() {
+    
   },
 
   favorites: function() {
@@ -35,6 +40,7 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
   },
 
   profile: function() {
+    this.profileCollection.page = 1;
     this.profileCollection.fetch();
     var profile = new Picturito.Views.Profile({
       collection: this.profileCollection
