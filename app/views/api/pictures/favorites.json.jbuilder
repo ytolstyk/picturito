@@ -9,7 +9,7 @@ json.array!(@pictures) do |picture|
   json.likes picture.like_count
   json.user_liked picture.user_liked?(current_user)
   json.date_liked picture.user_liked_date(current_user)
-  json.score picture.rating.score
-  json.highest_score picture.rating.highest_score
+  json.score picture.rating.display_score
+  json.highest_score picture.rating.display_highest_score
 end
 

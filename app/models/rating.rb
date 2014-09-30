@@ -22,7 +22,7 @@ class Rating < ActiveRecord::Base
 
   def show_action
     score = self.score
-    score = (score + (100 - score) * 0.05).round(1)
+    score = (score + (100 - score) * 0.05)
     if (self.last_reduction < 1.day.ago && score > 50)
       self.score = score - 10
       self.last_reduction = DateTime.now
@@ -36,7 +36,7 @@ class Rating < ActiveRecord::Base
 
   def like_action
     score = self.score
-    score = (score + (100 - score) * 0.1).round(1)
+    score = (score + (100 - score) * 0.1)
     if (self.last_reduction < 1.day.ago && score > 50)
       self.score = score - 10
       self.last_reduction = DateTime.now
@@ -50,8 +50,16 @@ class Rating < ActiveRecord::Base
 
   def remove_like
     score = self.score
-    score = ((score - 10) / 0.9).round(1)
+    score = ((score - 10) / 0.9)
     self.update(score: score)
+  end
+
+  def display_score
+    self.score.round(1)
+  end
+
+  def display_highest_score
+    self.highest_score.round(1)
   end
 
   private

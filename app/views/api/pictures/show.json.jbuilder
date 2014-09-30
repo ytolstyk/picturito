@@ -7,8 +7,8 @@ json.views @picture.views
 json.username @picture.user.username
 json.likes @picture.like_count
 json.user_liked @picture.user_liked?(current_user)
-json.score @picture.rating.score
-json.highest_score @picture.rating.highest_score
+json.score @picture.rating.display_score
+json.highest_score @picture.rating.display_highest_score
 json.next_picture @picture.next_picture
 json.previous_picture @picture.previous_picture
 if @picture.user.avatars.empty?
