@@ -38,5 +38,8 @@ PictureLike model
 1  move the pagination logic to the controller (if possible)
 2  add flash (view source)
 
-on remove, add animation. on animation end, remove view
-add favorites and popular
+
+add remove animation to deleting images
+add animation to editing images
+add counters (maybe)
+add picture preview
