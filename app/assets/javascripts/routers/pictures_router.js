@@ -24,7 +24,13 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     "profile": "profile",
     "favorites": "favorites",
     "popular/:page": "popular",
-    "popular": "popular"
+    "popular": "popular",
+    "contact": "contact"
+  },
+
+  contact: function() {
+    var contact = new Picturito.Views.Contact();
+    this._swapView(contact);
   },
 
   popular: function(page) {

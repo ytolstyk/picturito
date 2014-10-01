@@ -761,3 +761,24 @@ div.main-page-info {
 .favorites-load-more {
   
 }
+
+/*CONTACT*/
+
+.contact-wrapper {
+  position: relative;
+  width: 600px;
+  min-height: 270px;
+  border-radius: 3px;
+  margin: 0 auto;
+  background-color: #555;
+}
+
+.contact-picture {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.contact-picture-img {
+  border-radius: 3px;
+}
