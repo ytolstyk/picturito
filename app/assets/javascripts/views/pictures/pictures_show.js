@@ -25,6 +25,10 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   keyHandler: function(key) {
+      if (key.target.tagName.toLowerCase() === "textarea") {
+        return;
+      }
+
       switch(key.which) {
         case 27: // escape
           if(this.splash){

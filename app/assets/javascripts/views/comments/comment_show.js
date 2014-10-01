@@ -17,9 +17,9 @@ Picturito.Views.CommentShow = Backbone.View.extend({
     event.preventDefault();
     var view = this;
     var $parent = $($(event.currentTarget).parent());
-    $parent.children().hide(200, function() {
+    $parent.children().effect("explode", { pieces: 6 }, 300)
+    $parent.effect("explode", { pieces: 6 }, 300, function() {
       view.model.destroy();
-      view.remove();
     });
   },
 

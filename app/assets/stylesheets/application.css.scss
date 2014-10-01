@@ -16,6 +16,7 @@
 @import 'slate';
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "jquery.ui.core";
 
 * {
   list-style: none;
@@ -114,8 +115,8 @@ div.pagination {
   position: absolute;
   top: 45px;
   right: 20px;
-  width: 235px;
-  height: 235px;
+  width: 234px;
+  height: 234px;
   background-color: grey;
   border-radius: 3px;
   text-align: center;
@@ -139,8 +140,8 @@ div.pagination {
 }
 
 #previewHolder {
-  max-width: 230px;
-  max-height: 230px;
+  max-width: 228px;
+  max-height: 228px;
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;

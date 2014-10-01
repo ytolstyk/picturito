@@ -42,4 +42,3 @@ PictureLike model
 add remove animation to deleting images
 add animation to editing images
 add counters (maybe)
-add picture preview

@@ -6,6 +6,7 @@ group :development do
   gem "annotate"
 end
 
+gem "jquery-ui-sass-rails"
 gem "backbone-on-rails"
 gem "kaminari"
 gem "figaro"

@@ -19,8 +19,13 @@ Picturito.Views.ProfilePicture = Backbone.View.extend({
 
   deletePicture: function(event) {
     event.preventDefault();
-    this.model.destroy();
-    this.remove();
+    var view = this;
+    var $parent = $($(event.currentTarget).parent());
+    $parent.children().effect("explode", { pieces: 6 }, 300)
+    $parent.effect("explode", { pieces: 6 }, 300, function() {
+      view.model.destroy();
+      view.remove();
+    });
   },
 
   updatePicture: function(event) {
