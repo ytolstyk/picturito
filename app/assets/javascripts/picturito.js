@@ -25,12 +25,15 @@ $(function () {
   };
 
   function clearForm($form) {
+    $form.find(".alert").remove()
     var $alert = $("<div class='alert alert-success inline-block'>");
     $alert.html("Success!");
     $(".modal-content").find(".modal-footer").prepend($alert);
     $form.find(":input").val("");
-    $(".close").trigger("click");
     $(".refresh").trigger("click");
+    setTimeout(function() {
+      $(".close").trigger("click");
+    }, 500);
   };
 
   function displayError($form, $btn) {
@@ -123,6 +126,24 @@ $(function () {
     $("#userName").val("guest");
     $("#userPassword").val("something");
     setTimeout(function(){$(".sign-in-button").trigger("click")}, 10);
+  });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var $previewHolder = $("#previewHolder");
+        $previewHolder.css("background-image", "url(" + e.target.result + ")");
+        $previewHolder.css("height", 250);
+        $previewHolder.css("width", 250);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(".upload-picture-file").on("change", function() {
+    readURL(this);
   });
 
 });

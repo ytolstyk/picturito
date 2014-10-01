@@ -53,6 +53,7 @@ class Picture < ActiveRecord::Base
   after_create :create_rating
 
   def self.total_pages
+    return 0 if Picture.count == 0
     (Picture.count + PAGINATE_PER - 1) / PAGINATE_PER
   end
 

@@ -16,9 +16,7 @@ Picturito.Views.CommentShow = Backbone.View.extend({
   deleteComment: function(event) {
     event.preventDefault();
     var view = this;
-    var $btn = $(event.currentTarget);
     var $parent = $($(event.currentTarget).parent());
-    var $img = $parent.find("img");
     $parent.children().hide(200, function() {
       view.model.destroy();
       view.remove();

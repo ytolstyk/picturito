@@ -51,6 +51,7 @@ class Rating < ActiveRecord::Base
   def remove_like
     score = self.score
     score = ((score - 10) / 0.9)
+    score = 0 if score < 0
     self.update(score: score)
   end
 
