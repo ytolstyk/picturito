@@ -39,7 +39,7 @@ $(function () {
   function displayError($form, $btn) {
     $("div.alert.alert-danger").remove();
     var $alert = $("<div class='alert alert-danger inline-block'>");
-    $alert.html("Something went wrong with your upload");
+    $alert.html("No file added");
     $(".modal-content").find(".modal-footer").prepend($alert);
     _toggleFormEnabled($form, false);
     resetButton($btn);
@@ -57,9 +57,14 @@ $(function () {
     $("#previewHolder").css("background-image", "url()");
   };
 
+  function removeFile() {
+    $("#pictureFile").val("");
+  };
+
   $("#pictureUpload").on("hidden.bs.modal", function(event) {
     removeAlert();
     removePreview();
+    removeFile();
   });
 
   $("#picture-upload").on("click", function(event) {
