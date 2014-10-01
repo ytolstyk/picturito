@@ -53,8 +53,13 @@ $(function () {
     $btn.button("reset");
   };
 
+  function removePreview() {
+    $("#previewHolder").css("background-image", "url()");
+  };
+
   $("#pictureUpload").on("hidden.bs.modal", function(event) {
     removeAlert();
+    removePreview();
   });
 
   $("#picture-upload").on("click", function(event) {
@@ -134,8 +139,6 @@ $(function () {
       reader.onload = function(e) {
         var $previewHolder = $("#previewHolder");
         $previewHolder.css("background-image", "url(" + e.target.result + ")");
-        $previewHolder.css("height", 250);
-        $previewHolder.css("width", 250);
       }
 
       reader.readAsDataURL(input.files[0]);

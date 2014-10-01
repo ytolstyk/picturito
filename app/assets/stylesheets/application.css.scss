@@ -112,16 +112,26 @@ div.pagination {
 
 .preview-holder {
   position: absolute;
-  top: 40px;
+  top: 45px;
   right: 20px;
-  width: 240px;
-  height: 240px;
+  width: 235px;
+  height: 235px;
   background-color: grey;
-  border-radius: 2px;
+  border-radius: 3px;
   text-align: center;
   vertical-align: middle;
   padding: 5px;
   transition: all 0.2s ease-in-out;
+}
+
+#preview-text {
+  position: absolute;
+  font-size: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  top: 30px;
+  left: 30px;
+  text-shadow: 0 0 1px #000;
 }
 
 .preview-with-picture {
