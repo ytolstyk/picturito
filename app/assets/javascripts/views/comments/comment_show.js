@@ -15,8 +15,23 @@ Picturito.Views.CommentShow = Backbone.View.extend({
 
   deleteComment: function(event) {
     event.preventDefault();
-    this.model.destroy();
-    this.remove();
+    var view = this;
+    var $btn = $(event.currentTarget);
+    var $parent = $($(event.currentTarget).parent());
+    var $img = $parent.find("img");
+    $btn.hide(1000);
+    $img.hide(1000, function() {
+      $parent.hide(1000, function() {
+        view.model.destroy();
+        view.remove();
+      });
+      // view.model.destroy({
+      //   success: function() {
+      //     $parent.hide(200, view.remove.bind(view))
+      //   }
+      // });
+    });
+    // this.remove();
   },
 
   render: function() {

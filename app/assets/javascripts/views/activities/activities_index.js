@@ -6,7 +6,7 @@ Picturito.Views.ActivitiesIndex = Backbone.CompositeView.extend({
   template: JST['activities/index'],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add remove reset", this.render);
+    this.listenTo(this.collection, "sync add reset", this.render);
     this.$noMore = $("<li class='li-activity'>");
     this.$noMore.html("<a href='#'>nothing happened lately</a>");
   },

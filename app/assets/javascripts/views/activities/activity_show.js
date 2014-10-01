@@ -22,8 +22,13 @@ Picturito.Views.ActivityShow = Backbone.View.extend({
   removeActivity: function(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.model.destroy();
-    this.remove();
+    var view = this;
+    var $parent = $($(event.currentTarget).parent());
+    this.model.destroy({
+      success: function() {
+        $parent.hide(200, view.remove.bind(view))
+      }
+    });
   },
 
   render: function() {
