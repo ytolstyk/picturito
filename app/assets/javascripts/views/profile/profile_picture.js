@@ -45,8 +45,11 @@ Picturito.Views.ProfilePicture = Backbone.View.extend({
       picture: this.model
     });
 
-    this.$el.html(renderContent);
-    return this;
+    var view = this;
+    this.$el.children().effect("shake", {}, 300, function() {
+      view.$el.html(renderContent);
+      return this;
+    });
   },
 
   render: function() {

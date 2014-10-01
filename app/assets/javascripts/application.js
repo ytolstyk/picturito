@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.effect-explode
+//= require jquery.ui.effect-shake
 //= require bootstrap
 //= require underscore
 //= require backbone

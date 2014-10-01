@@ -4,7 +4,7 @@ Picturito.Views.Profile = Backbone.CompositeView.extend({
   template: JST["users/profile"],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add remove reset", this.render);
+    this.listenTo(this.collection, "add remove reset", this.render);
   },
 
   addPicture: function(picture) {
