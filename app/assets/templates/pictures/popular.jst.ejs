@@ -1,0 +1,34 @@
+<div class="clearfix index-pictures-container">
+  <ul class="ul-pictures clearfix">
+
+  </ul>
+</div>
+
+<div class="pagination">
+
+  <a href="<%= previous_page %>">
+    <div class="previous-page pagination-link"><</div>
+  </a>
+
+  <form class="go-to-page" role="form">
+    <div class="form-group">
+      <input class="current-page form-control" value="<%= this_page %>">
+    </div>
+  </form>
+
+  <a href="<%= next_page %>">
+    <div class="next-page pagination-link">></div>
+  </a>
+
+</div>
+<div class="total-pages-container">
+  <div class="total-pages">
+    total pages: <%= total_pages %>
+  </div>
+</div>
+
+<button type="button" 
+  class="btn btn-primary btn-lg refresh"
+  style="visibility: hidden;">Refresh</button>
+
+

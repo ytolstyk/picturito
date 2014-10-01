@@ -10,5 +10,6 @@ json.array!(@pictures) do |picture|
   json.user_liked picture.user_liked?(current_user)
   json.score picture.rating.display_score
   json.highest_score picture.rating.display_highest_score
+  json.total_pages Picture.total_pages
 end
 

@@ -23,13 +23,18 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     "picture/:id": "show",
     "profile": "profile",
     "favorites": "favorites",
+    "popular/:page": "popular",
     "popular": "popular"
   },
 
-  popular: function() {
+  popular: function(page) {
+    if (!page) {
+      page = 1;
+    }
+
     this.popularCollection.page = 1;
-    this.popularCollection.fetch();
-    var popular = new Picturito.Views.Favorites({
+    this.popularCollection.fetchPage(page);
+    var popular = new Picturito.Views.Popular({
       collection: this.popularCollection
     });
 
