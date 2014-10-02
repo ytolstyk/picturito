@@ -2,6 +2,15 @@
 <html>
   <head>
     <title>Picturito</title>
+    <script>TOTAL_PAGES = <%= Picture.total_pages %> </script>
+    <script>EGGS = <%= raw eggs %></script>
+    <% if current_user %>
+      <script>CURRENT_USER = <%= current_user.id %></script>
+    <% else %>
+      <script>CURRENT_USER = 0</script>
+    <% end %>
+    
+    <%= javascript_include_tag 'application'%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -111,14 +120,6 @@
       </div>
     </div>
   </div>
-  
-  <%= javascript_include_tag 'application'%>
-  <script>TOTAL_PAGES = <%= Picture.total_pages %> </script>
-    <script>EGGS = <%= raw eggs %></script>
-    <% if current_user %>
-      <script>CURRENT_USER = <%= current_user.id %></script>
-    <% else %>
-      <script>CURRENT_USER = 0</script>
-    <% end %>
+
   </body>
 </html>
