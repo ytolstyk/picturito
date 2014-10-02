@@ -36,9 +36,6 @@ PictureLike model
 ------------------------------
 
 
-4. contact form
-
-
 performance gems:
 1. lol_dba (rake tasks) (done)
   db:find_indexes

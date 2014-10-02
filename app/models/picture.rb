@@ -68,7 +68,6 @@ class Picture < ActiveRecord::Base
   def user_liked_date(user)
     date = self.picture_likes.find_by_user_id(user.id).created_at.asctime
     date ? date : "Unliked"
-
   end
 
   def next_picture
