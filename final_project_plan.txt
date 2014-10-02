@@ -35,10 +35,6 @@ PictureLike model
 
 ------------------------------
 
-1  move the pagination logic to the controller (if possible)
-2  add flash (view source)
 
-
-add remove animation to deleting images
-add animation to editing images
-add counters (maybe)
+3. clear form when hiding modal
+4. contact form

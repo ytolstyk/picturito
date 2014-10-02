@@ -157,9 +157,12 @@ Picturito.Views.PictureShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
+    var eggs = this.eggs;
+    var egg = EGGS[Math.floor(Math.random() * EGGS.length)];
     var view = this;
     var renderContent = this.template({
-      picture: this.model
+      picture: this.model,
+      egg: egg
     });
     this.splash = false;
 

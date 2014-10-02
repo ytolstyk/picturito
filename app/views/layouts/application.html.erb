@@ -3,6 +3,7 @@
   <head>
     <title>Picturito</title>
     <script>TOTAL_PAGES = <%= Picture.total_pages %> </script>
+    <script>EGGS = <%= raw eggs %></script>
     <% if current_user %>
       <script>CURRENT_USER = <%= current_user.id %></script>
     <% else %>
