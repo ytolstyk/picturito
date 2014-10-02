@@ -41,22 +41,24 @@ PictureLike model
 
 
 performance gems:
-1. lol_dba (rake tasks)
+1. lol_dba (rake tasks) (done)
   db:find_indexes
 
-2. newrelic
+2. newrelic (done)
   ping the website
 
 3. bullet
   finds n + 1 queries
 
-4. thin
+4. thin (done)
   Rails users WEBRick by default. it's slow. use thin.
   gem "thin"
   go to Procfile:
   "web: bundle exec thin start -p $PORT"
 
-5. paginate
+5. paginate (done)
 
-6. config.ru
+6. config.ru (done)
   "use Rack::Deflater"
+
+Cache headers
