@@ -5,8 +5,10 @@ module Api
     def index
       # include url pagination logic here
       if params[:user_id]
-        @pictures = current_user.pictures.includes(:user, :liked_users, :picture_likes, :rating).order(:id).page params[:page]
+        @user = User.find(params[:user_id])
+        @pictures = @user.pictures.includes(:user, :liked_users, :picture_likes, :rating).order(:id).page params[:page]
       else
+        @user = current_user
         @pictures = Picture.includes(:user, :liked_users, :picture_likes, :rating).all.order(:id).page params[:page]
       end
     end

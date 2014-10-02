@@ -12,7 +12,9 @@
       <%= picture.escape("title") %>
     </div>
     <div class="picture-author">
-      <%= picture.escape("username") %>
+      <a href="#/user/<%= picture.escape('user_id') %>">
+        <%= picture.escape("username") %>
+      </a>
     </div>
   </div>
 

@@ -25,7 +25,19 @@ Picturito.Routers.Pictures = Backbone.Router.extend({
     "favorites": "favorites",
     "popular/:page": "popular",
     "popular": "popular",
-    "contact": "contact"
+    "contact": "contact",
+    "user/:id": "userProfile"
+  },
+
+  userProfile: function(id) {
+    var collection = new Picturito.Collections.UsersPictures(id);
+    collection.page = 1;
+    collection.fetch();
+    var userProfile = new Picturito.Views.UserProfile({
+      collection: collection
+    });
+
+    this._swapView(userProfile);
   },
 
   contact: function() {

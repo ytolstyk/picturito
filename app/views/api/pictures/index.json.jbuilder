@@ -10,6 +10,15 @@ json.array!(@pictures) do |picture|
   json.user_liked picture.user_liked?(current_user)
   json.score picture.rating.display_score
   json.highest_score picture.rating.display_highest_score
+  json.user_id picture.user.id
+
+  if @user && @user.avatars.empty?
+    json.user_avatar_small "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
+    json.user_avatar_big "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_big.jpeg"
+  else
+    json.user_avatar_small @user.avatars.last.image.url(:small)
+    json.user_avatar_big @user.avatars.last.image.url(:big)
+  end
 
   if current_user
     json.current_user current_user.id

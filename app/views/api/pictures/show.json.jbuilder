@@ -11,6 +11,7 @@ json.score @picture.rating.display_score
 json.highest_score @picture.rating.display_highest_score
 json.next_picture @picture.next_picture
 json.previous_picture @picture.previous_picture
+json.user_id @picture.user.id
 if @picture.user.avatars.empty?
   json.avatar "https://s3-us-west-1.amazonaws.com/picturito-dev/images/avatars/default_small.jpeg"
 else

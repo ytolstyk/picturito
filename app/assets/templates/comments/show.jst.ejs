@@ -11,7 +11,8 @@
 <% }; %>
 
 <div class="comment-author inline-block">
-  <%= comment.escape("username") %>
+  <a href="#/user/<%= comment.escape('user_id') %>"><%= comment.escape("username") %>
+  </a>
 </div>
 <div class="comment-datetime activity-time inline-block">
   (<%= comment.escape("created_at") %>)

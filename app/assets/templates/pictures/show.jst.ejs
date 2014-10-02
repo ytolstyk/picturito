@@ -3,7 +3,9 @@
     <img src="<%= picture.escape('avatar') %>">
   </div>
   <h2 class="h2-title"><%= picture.escape("title") %></h2>
-  <span><%= picture.escape("username") %></span>
+  <a href="#/user/<%= picture.escape('user_id') %>">
+    <span><%= picture.escape("username") %></span>
+  </a>
 
   <div class="score-wrapper">
     <div class="show-picture-score">

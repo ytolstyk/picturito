@@ -1,0 +1,10 @@
+<div class="profile-picture-container">
+  <a href="#/picture/<%= picture.escape('id') %>">
+    <img src="<%= picture.escape('image_url_small') %>">
+  </a>
+</div>
+
+<div class="profile-picture-info">
+  <h2><%= picture.escape("title") %></h2>
+  <p><%= picture.escape("description") %></p>
+</div>
