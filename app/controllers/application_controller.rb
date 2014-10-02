@@ -31,7 +31,6 @@ class ApplicationController < ActionController::Base
     eggs.delete("..")
     eggs.delete(".DS_Store")
     eggs.map! { |el| "/assets/eggs/#{el}".html_safe }
-    eggs
   end
 
   def background_image

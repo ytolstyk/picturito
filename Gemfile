@@ -6,6 +6,8 @@ group :development do
   gem "annotate"
 end
 
+gem "lol_dba"
+gem "thin"
 gem "jquery-ui-sass-rails"
 gem "backbone-on-rails"
 gem "kaminari"
