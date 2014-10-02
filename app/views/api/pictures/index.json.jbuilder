@@ -7,7 +7,7 @@ json.array!(@pictures) do |picture|
   json.views picture.views
   json.username picture.user.username
   json.likes picture.like_count
-  json.user_liked picture.user_liked?(current_user)
+  json.user_liked picture.user_liked?(current_user) 
   json.score picture.rating.display_score
   json.highest_score picture.rating.display_highest_score
   json.user_id picture.user.id
@@ -29,7 +29,7 @@ json.array!(@pictures) do |picture|
       json.avatar_small current_user.avatars.last.image.url(:small)
       json.avatar_big current_user.avatars.last.image.url(:big)
     end
-    json.total_pages Picture.total_pages
+    json.total_pages @total_pages
   end
 end
 

@@ -57,14 +57,15 @@ $(function () {
     $("#previewHolder").css("background-image", "url()");
   };
 
-  function removeFile() {
+  function removeInput() {
     $("#pictureFile").val("");
+    $(".picture-upload-form").find(":input").val("");
   };
 
   $("#pictureUpload").on("hidden.bs.modal", function(event) {
     removeAlert();
     removePreview();
-    removeFile();
+    removeInput();
   });
 
   $("#picture-upload").on("click", function(event) {

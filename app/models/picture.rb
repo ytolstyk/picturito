@@ -58,7 +58,7 @@ class Picture < ActiveRecord::Base
   end
 
   def like_count
-    self.picture_likes.count
+    self.picture_likes.length
   end
 
   def user_liked?(user)

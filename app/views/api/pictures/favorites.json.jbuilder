@@ -7,8 +7,9 @@ json.array!(@pictures) do |picture|
   json.views picture.views
   json.username picture.user.username
   json.likes picture.like_count
-  json.user_liked picture.user_liked?(current_user)
-  json.date_liked picture.user_liked_date(current_user)
+  json.user_liked true
+  # json.date_liked picture.user_liked_date(current_user)
+  json.date_liked picture.picture_like_date.asctime
   json.score picture.rating.display_score
   json.highest_score picture.rating.display_highest_score
 end

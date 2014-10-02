@@ -36,7 +36,6 @@ PictureLike model
 ------------------------------
 
 
-3. clear form when hiding modal
 4. contact form
 
 
@@ -62,3 +61,7 @@ performance gems:
   "use Rack::Deflater"
 
 Cache headers
+
+TWO IMPORTANT INTERVIEW QUESTIONS:
+what happens when i type in an address and hit enter
+how can i make it faster?
