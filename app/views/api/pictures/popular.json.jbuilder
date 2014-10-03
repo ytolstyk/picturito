@@ -11,5 +11,6 @@ json.array!(@pictures) do |picture|
   json.score picture.rating.display_score
   json.highest_score picture.rating.display_highest_score
   json.total_pages @total_pages
+  json.user_id picture.user.id
 end
 

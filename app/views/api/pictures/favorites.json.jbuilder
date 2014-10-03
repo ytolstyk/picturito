@@ -12,5 +12,6 @@ json.array!(@pictures) do |picture|
   json.date_liked picture.picture_like_date.asctime
   json.score picture.rating.display_score
   json.highest_score picture.rating.display_highest_score
+  json.user_id picture.user.id
 end
 
