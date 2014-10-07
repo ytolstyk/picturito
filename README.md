@@ -1,7 +1,9 @@
 # Picturito.com
 
+[picturito.com](http://www.picturito.com)
+
 Welcome!
-This website is made using Ruby on Rails, Backbone, and an assortment of other cool gadgets. Come on in and enjoy your stay.
+This website is made using ```Ruby on Rails```, ```Backbone```, and an assortment of other cool gadgets. Come on in and enjoy your stay.
 
 Here are some cool features you will enjoy:
 
